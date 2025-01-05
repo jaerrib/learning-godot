@@ -10,7 +10,3 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x += speed * delta * Input.get_axis("left", "right")
-
-
-func _on_gem_area_entered(area: Area2D) -> void:
-	print(area)

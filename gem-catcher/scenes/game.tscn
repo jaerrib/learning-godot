@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://hhuy2g7j6575"]
+
+[ext_resource type="Texture2D" uid="uid://dw8xp2w08phiq" path="res://assets/GameBg.png" id="1_4hucp"]
+[ext_resource type="PackedScene" uid="uid://d04gy7uc16n6n" path="res://scenes/paddle.tscn" id="2_31xlh"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(569, 346)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_4hucp")
+
+[node name="Paddle" parent="." instance=ExtResource("2_31xlh")]
+position = Vector2(548, 525)
+scale = Vector2(0.7, 0.7)

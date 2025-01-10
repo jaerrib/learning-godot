@@ -27,5 +27,14 @@ func spawn_pipes() -> void:
 	pipes_holder.add_child(new_pipes)
 
 
+func stop_pipes() -> void:
+	spawn_timer.stop ()
+	for pipe in pipes_holder.get_children():
+		pipe.set_process(false)
+
 func _on_spawn_timer_timeout() -> void:
 	spawn_pipes()
+
+
+func _on_plane_died() -> void:
+	stop_pipes()

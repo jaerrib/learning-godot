@@ -9,14 +9,16 @@
 script = ExtResource("1_hcwmx")
 
 [node name="Upper" parent="." instance=ExtResource("1_0bu6r")]
+z_index = 3
 position = Vector2(0, -80)
 rotation = 3.14159
 
 [node name="Lower" parent="." instance=ExtResource("1_0bu6r")]
+z_index = 3
 position = Vector2(0, 80)
 
 [node name="Laser" parent="." instance=ExtResource("2_r2u0x")]
-z_index = -1
+z_index = 2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(45, 0)

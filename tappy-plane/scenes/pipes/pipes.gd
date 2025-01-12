@@ -26,3 +26,11 @@ func on_plane_died() -> void:
 
 func _on_screen_exited() -> void:
 	queue_free()
+
+
+func _on_pipe_body_entered(body: Node2D) -> void:
+	if body is Tappy:
+		body.die()
+	#if body.is_in_group(GameManager.GROUP_PLANE):
+		#if body.has_method("die"):
+			#body.die()

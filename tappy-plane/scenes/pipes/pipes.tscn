@@ -26,6 +26,7 @@ position = Vector2(45, 0)
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(45, 0)
 stream = ExtResource("3_upijq")
+volume_db = -6.5
 
 [connection signal="body_entered" from="Upper" to="." method="_on_pipe_body_entered"]
 [connection signal="body_entered" from="Lower" to="." method="_on_pipe_body_entered"]

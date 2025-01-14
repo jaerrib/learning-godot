@@ -35,7 +35,7 @@ func load_high_score() -> void:
 	var file: FileAccess = FileAccess.open(SCORES_PATH, FileAccess.READ)
 	if file:
 		if file.get_length() > 0:
-			_high_score = file.get_32()
+			_high_score = file.get_as_text().to_int()
 			print("Loaded high score")
 		else:
 			print("Nothing in file")
@@ -47,5 +47,5 @@ func load_high_score() -> void:
 func save_high_score_to_file() -> void:
 	var file: FileAccess = FileAccess.open(SCORES_PATH, FileAccess.WRITE)
 	if file:
-		file.store_32(_high_score)
+		file.store_string(str(_high_score))
 		file.close

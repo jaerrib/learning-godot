@@ -75,6 +75,7 @@ _data = {
 }
 
 [node name="Plane" type="CharacterBody2D" groups=["Plane"]]
+collision_layer = 8
 script = ExtResource("1_snlm7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

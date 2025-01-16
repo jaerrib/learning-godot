@@ -21,7 +21,7 @@ position = Vector2(0, 80)
 z_index = 2
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(45, 0)
+position = Vector2(70, 0)
 
 [node name="ScoreSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(45, 0)

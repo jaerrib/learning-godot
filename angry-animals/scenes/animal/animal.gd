@@ -17,6 +17,7 @@ var _last_dragged_vector: Vector2 = Vector2.ZERO
 var _arrow_scale_x: float = 0.0
 
 @onready var stretch_sound: AudioStreamPlayer2D = $StretchSound
+@onready var launch_sound: AudioStreamPlayer2D = $LaunchSound
 @onready var arrow: Sprite2D = $Arrow
 
 
@@ -39,14 +40,25 @@ func get_impulse() -> Vector2:
 	return _dragged_vector * -1  * IMPULSE_MULT 
 
 
+func set_drag() -> void:
+	_drag_start = get_global_mouse_position()
+	arrow.show()
+
+
+func set_release() -> void:
+	arrow.hide()
+	freeze = false
+	apply_central_impulse(get_impulse())
+	launch_sound.play()
+	
+
+
 func set_new_state(new_state: ANIMAL_STATE) -> void:
 	_state = new_state
 	if _state == ANIMAL_STATE.RELEASE:
-		arrow.hide()
-		freeze = false 
+		set_release()
 	elif _state == ANIMAL_STATE.DRAG:
-		_drag_start = get_global_mouse_position()
-		arrow.show()
+		set_drag()
 
 
 func detect_release() -> bool:

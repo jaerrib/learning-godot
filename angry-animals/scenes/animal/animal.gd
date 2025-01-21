@@ -58,7 +58,7 @@ func set_new_state(new_state: ANIMAL_STATE) -> void:
 	if _state == ANIMAL_STATE.RELEASE:
 		set_release()
 	elif _state == ANIMAL_STATE.DRAG:
-		set_drag()
+		set_drag() 
 
 
 func detect_release() -> bool:

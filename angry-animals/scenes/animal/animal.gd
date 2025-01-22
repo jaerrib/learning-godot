@@ -52,7 +52,7 @@ func set_release() -> void:
 	freeze = false
 	apply_central_impulse(get_impulse())
 	launch_sound.play()
-	
+	SignalManager.on_attempt_made.emit()
 
 
 func set_new_state(new_state: ANIMAL_STATE) -> void:
@@ -83,6 +83,7 @@ func play_stretch_sound() -> void:
 		if not stretch_sound.playing:
 			stretch_sound.play()
 
+
 func get_dragged_vector(gmp: Vector2) -> Vector2:
 	return gmp - _drag_start
 	
@@ -104,6 +105,7 @@ func play_collision() -> void:
 
 func update_flight() -> void:
 	play_collision()
+
 
 func update_drag() -> void:
 	if detect_release():
@@ -139,4 +141,7 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 
 func _on_sleeping_state_changed() -> void:
 	if sleeping:
+		var cb = get_colliding_bodies()
+		if cb.size() > 0:
+			cb[0].die() 
 		call_deferred("die")

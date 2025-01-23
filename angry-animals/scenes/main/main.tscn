@@ -55,9 +55,11 @@ layout_mode = 2
 
 [node name="LevelButton2" parent="HB" instance=ExtResource("2_b3td0")]
 layout_mode = 2
+level_number = 2
 
 [node name="LevelButton3" parent="HB" instance=ExtResource("2_b3td0")]
 layout_mode = 2
+level_number = 3
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1

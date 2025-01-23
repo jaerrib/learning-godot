@@ -2,7 +2,7 @@ extends Node2D
 
 
 const ANIMAL = preload("res://scenes/animal/animal.tscn")
-
+const MAIN = preload("res://scenes/main/main.tscn")
 
 @onready var animal_start: Marker2D = $AnimalStart
 
@@ -15,7 +15,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_key_label_pressed(KEY_ESCAPE):
+		get_tree().change_scene_to_packed(MAIN)
 
 
 func add_animal() -> void:

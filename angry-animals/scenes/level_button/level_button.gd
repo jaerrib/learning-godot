@@ -23,7 +23,8 @@ func _ready() -> void:
 
 
 func _on_pressed() -> void:
-	get_tree().change_scene_to_packed(_level_scene )
+	ScoreManager.set_level_selected(level_number)
+	get_tree().change_scene_to_packed(_level_scene)
 
 
 func _on_mouse_entered() -> void:

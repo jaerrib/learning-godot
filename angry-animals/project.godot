@@ -18,10 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 SignalManager="*res://singletons/signal_manager.gd"
+ScoreManager="*res://singletons/score_manager.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
+
+[global_group]
+
+cup=""
 
 [input]
 

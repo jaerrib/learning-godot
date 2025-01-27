@@ -1,8 +1,7 @@
 extends Node2D
 
 
-const ANIMAL = preload("res://scenes/animal/animal.tscn")
-const MAIN = preload("res://scenes/main/main.tscn")
+const ANIMAL = preload("res://scenes/animal/animal.tscn") 
 
 @onready var animal_start: Marker2D = $AnimalStart
 
@@ -12,11 +11,6 @@ func _ready() -> void:
 	add_animal()
 	SignalManager.on_animal_died.connect(add_animal)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	if Input.is_key_label_pressed(KEY_ESCAPE):
-		get_tree().change_scene_to_packed(MAIN)
 
 
 func add_animal() -> void:

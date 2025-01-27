@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://oly7dwg3fc56"]
+[gd_scene load_steps=6 format=3 uid="uid://oly7dwg3fc56"]
 
+[ext_resource type="Script" path="res://scenes/game_ui/game_ui.gd" id="1_fdvno"]
 [ext_resource type="LabelSettings" uid="uid://11dr0jbg72hm" path="res://assets/lg_48_gr.tres" id="1_nsooh"]
 [ext_resource type="LabelSettings" uid="uid://b67nkwwkd2dfu" path="res://assets/lg_96_bl.tres" id="2_6io75"]
 [ext_resource type="LabelSettings" uid="uid://lm4omagerovx" path="res://assets/lg_48_bl.tres" id="3_xdy0s"]
@@ -12,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_fdvno")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -58,5 +61,5 @@ label_settings = ExtResource("3_xdy0s")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="GameSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_yx7qc")

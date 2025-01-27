@@ -1,16 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bglpu2yj0ox8g"]
+[gd_scene load_steps=5 format=3 uid="uid://bglpu2yj0ox8g"]
 
 [ext_resource type="Texture2D" uid="uid://bs0q567l2krxl" path="res://assets/env/MainBG.png" id="1_vwa74"]
 [ext_resource type="PackedScene" uid="uid://ch2ax5rq4eh5q" path="res://scenes/level_button/level_button.tscn" id="2_b3td0"]
-[ext_resource type="FontFile" uid="uid://mrwfb3yhgsa0" path="res://assets/fonts/LuckiestGuy-Regular.ttf" id="3_jkiwq"]
+[ext_resource type="LabelSettings" uid="uid://b67nkwwkd2dfu" path="res://assets/lg_96_bl.tres" id="3_x35pf"]
 [ext_resource type="AudioStream" uid="uid://b6bygc4hvgoqo" path="res://assets/audio/birdsong.wav" id="4_ftskk"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_fmef1"]
-font = ExtResource("3_jkiwq")
-font_size = 96
-font_color = Color(0, 0.4, 0.6, 1)
-shadow_size = 3
-shadow_color = Color(0, 0, 0, 0.501961)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -77,7 +70,7 @@ theme_override_constants/margin_top = 12
 layout_mode = 2
 size_flags_horizontal = 4
 text = "ANGRY ANIMALS"
-label_settings = SubResource("LabelSettings_fmef1")
+label_settings = ExtResource("3_x35pf")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ftskk")

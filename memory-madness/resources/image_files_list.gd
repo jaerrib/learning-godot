@@ -10,3 +10,7 @@ class_name ImageFilesList
 func add_filename(fn: String) -> void:
 	if !'.import' in fn:
 		file_names.append(fn)
+
+
+func get_file_names() -> Array[String]:
+	return file_names

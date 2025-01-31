@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://1e6034keiccb"]
+[gd_scene load_steps=4 format=3 uid="uid://1e6034keiccb"]
 
 [ext_resource type="LabelSettings" uid="uid://bb475bkqlpx44" path="res://assets/LG_84_Green.tres" id="1_vys2a"]
+[ext_resource type="PackedScene" uid="uid://dav464c027na4" path="res://level_button/level_button.tscn" id="2_fgdby"]
+[ext_resource type="PackedScene" uid="uid://58xtqy1fj5m3" path="res://front_sprite/front_sprite.tscn" id="2_prgnk"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -45,6 +47,30 @@ size_flags_vertical = 3
 [node name="HBLevels" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="LevelButton" parent="ColorRect/VBoxContainer/HBLevels" instance=ExtResource("2_fgdby")]
+layout_mode = 2
+
+[node name="LevelButton2" parent="ColorRect/VBoxContainer/HBLevels" instance=ExtResource("2_fgdby")]
+layout_mode = 2
+level_number = 2
+
+[node name="LevelButton3" parent="ColorRect/VBoxContainer/HBLevels" instance=ExtResource("2_fgdby")]
+layout_mode = 2
+level_number = 3
+
+[node name="LevelButton4" parent="ColorRect/VBoxContainer/HBLevels" instance=ExtResource("2_fgdby")]
+layout_mode = 2
+level_number = 4
+
+[node name="LevelButton5" parent="ColorRect/VBoxContainer/HBLevels" instance=ExtResource("2_fgdby")]
+layout_mode = 2
+level_number = 5
+
+[node name="LevelButton6" parent="ColorRect/VBoxContainer/HBLevels" instance=ExtResource("2_fgdby")]
+layout_mode = 2
+level_number = 6
 
 [node name="Spacer3" type="Control" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
@@ -53,6 +79,22 @@ size_flags_vertical = 3
 [node name="HBSprites" type="HBoxContainer" parent="ColorRect/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/separation = 48
+
+[node name="FrontSprite" parent="ColorRect/VBoxContainer/HBSprites" instance=ExtResource("2_prgnk")]
+layout_mode = 2
+
+[node name="FrontSprite2" parent="ColorRect/VBoxContainer/HBSprites" instance=ExtResource("2_prgnk")]
+layout_mode = 2
+
+[node name="FrontSprite3" parent="ColorRect/VBoxContainer/HBSprites" instance=ExtResource("2_prgnk")]
+layout_mode = 2
+
+[node name="FrontSprite4" parent="ColorRect/VBoxContainer/HBSprites" instance=ExtResource("2_prgnk")]
+layout_mode = 2
+
+[node name="FrontSprite5" parent="ColorRect/VBoxContainer/HBSprites" instance=ExtResource("2_prgnk")]
+layout_mode = 2
 
 [node name="Spacer4" type="Control" parent="ColorRect/VBoxContainer"]
 layout_mode = 2

@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://6ble00dbwixb"]
+[gd_scene load_steps=3 format=3 uid="uid://6ble00dbwixb"]
+
+[ext_resource type="Texture2D" uid="uid://bj1lmlqb7jlx1" path="res://assets/images/backgroundEmpty.png" id="1_3tmow"]
+[ext_resource type="PackedScene" uid="uid://1e6034keiccb" path="res://scenes/main/main.tscn" id="2_rooc8"]
 
 [node name="Master" type="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3tmow")
+expand_mode = 1
+
+[node name="Main" parent="." instance=ExtResource("2_rooc8")]

@@ -12,6 +12,5 @@ func _ready() -> void:
 	label.text = "%dx%d" % [ldata.get_cols(), ldata.get_rows()]
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func _on_pressed() -> void:
+	SignalManager.on_level_selected.emit(level_number)

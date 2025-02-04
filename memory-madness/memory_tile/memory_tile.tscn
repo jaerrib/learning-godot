@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://f33r55wro8jk"]
+
+[ext_resource type="Texture2D" uid="uid://cp6p6n8kauith" path="res://assets/frames/hidden_frame_blank.png" id="1_6k6u2"]
+[ext_resource type="Script" path="res://memory_tile/memory_tile.gd" id="2_8e2fu"]
+[ext_resource type="Texture2D" uid="uid://b1ie3ilyoyx7a" path="res://assets/frames/blue_frame.png" id="2_55su0"]
+[ext_resource type="Texture2D" uid="uid://crjnwt1wm31lv" path="res://assets/glitch/alienGreen_suit.png" id="3_kqeh8"]
+
+[node name="MemoryTile" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(42, 42)
+texture_normal = ExtResource("1_6k6u2")
+script = ExtResource("2_8e2fu")
+
+[node name="FrameImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -42.0
+offset_right = 42.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_55su0")
+
+[node name="ItemImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_kqeh8")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

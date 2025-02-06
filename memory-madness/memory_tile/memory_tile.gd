@@ -1,7 +1,7 @@
 extends TextureButton
 
 
-class_name MemoryTitle
+class_name MemoryTile
 
 
 @onready var frame_image: TextureRect = $FrameImage

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds5pd8f8cbtca"]
+
+[ext_resource type="Script" path="res://scenes/scorer/scorer.gd" id="1_is1yw"]
+
+[node name="Scorer" type="Node"]
+script = ExtResource("1_is1yw")
+
+[node name="RevealTimer" type="Timer" parent="."]
+wait_time = 1.2
+one_shot = true
+
+[connection signal="timeout" from="RevealTimer" to="." method="_on_reveal_timer_timeout"]

@@ -21,3 +21,6 @@ expand_mode = 1
 visible = false
 
 [node name="Game" parent="." instance=ExtResource("3_uccqg")]
+
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+volume_db = -8.0

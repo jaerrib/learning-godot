@@ -110,4 +110,6 @@ vertical_alignment = 1
 visible = false
 layout_mode = 1
 
+[node name="Sound" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="HB/MC2/VB/ExitButton" to="." method="_on_exit_button_pressed"]

@@ -5,6 +5,7 @@ class_name Scorer
 
 
 @onready var reveal_timer: Timer = $RevealTimer
+@onready var sound: AudioStreamPlayer = $Sound
 
 
 var _selections: Array[MemoryTile] = []
@@ -42,6 +43,7 @@ func kill_tiles() -> void:
 	for t in _selections:
 		t.kill_on_success()
 	_pairs_made += 1
+	SoundManager.play_sound(sound, SoundManager.SOUND_SUCCESS)
 
 
 func selections_are_pair() -> bool:
@@ -65,6 +67,7 @@ func check_game_over() -> void:
 
 func on_tile_selected(t: MemoryTile) -> void:
 	t.reveal(true)
+	SoundManager.play_sound(sound, SoundManager.SOUND_SELECT_TILE)
 	_selections.append(t)
 	check_pair_made()
 

@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ddf235djo5tb8"]
+
+[node name="PlayerCam" type="Camera2D"]
+zoom = Vector2(2, 2)
+limit_bottom = 0
+
+[node name="ShakeTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true

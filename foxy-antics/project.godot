@@ -21,6 +21,18 @@ window/size/viewport_width=1024
 window/size/viewport_height=600
 window/stretch/mode="canvas_items"
 
+[global_group]
+
+Moveables=""
+
+[layer_names]
+
+2d_physics/layer_1="platforms"
+2d_physics/layer_2="player_hit_box"
+2d_physics/layer_3="enemy_hit_box"
+2d_physics/layer_4="player_bullets"
+2d_physics/layer_5="enemy_bullets"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

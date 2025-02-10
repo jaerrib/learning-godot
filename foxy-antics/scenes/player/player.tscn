@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgmimmu1vv08v"]
+[gd_scene load_steps=11 format=3 uid="uid://bgmimmu1vv08v"]
 
 [ext_resource type="Texture2D" uid="uid://ccbn4qbx65nja" path="res://assets/player/player.png" id="1_i25wv"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_km0mb"]
 
-[sub_resource type="Animation" id="Animation_w20sl"]
-resource_name = "idle"
-length = 0.4
-loop_mode = 1
-step = 0.1
+[sub_resource type="Animation" id="Animation_g3hhb"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -14,28 +12,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [13, 14, 15, 16]
-}
-
-[sub_resource type="Animation" id="Animation_ev5t4"]
-resource_name = "run"
-length = 0.4
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [15, 16, 17, 18]
+"values": [13]
 }
 
 [sub_resource type="Animation" id="Animation_dtrla"]
@@ -72,6 +52,24 @@ tracks/0/keys = {
 "values": [11, 12]
 }
 
+[sub_resource type="Animation" id="Animation_w20sl"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [13, 14, 15, 16]
+}
+
 [sub_resource type="Animation" id="Animation_vnw62"]
 resource_name = "jump"
 length = 0.1
@@ -88,8 +86,11 @@ tracks/0/keys = {
 "values": [17]
 }
 
-[sub_resource type="Animation" id="Animation_g3hhb"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_ev5t4"]
+resource_name = "run"
+length = 0.4
+loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,10 +98,10 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [13]
+"values": [15, 16, 17, 18]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mp1py"]
@@ -113,7 +114,12 @@ _data = {
 "run": SubResource("Animation_ev5t4")
 }
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hn2g5"]
+size = Vector2(10, 18)
+
+[node name="Player" type="CharacterBody2D" groups=["Moveables"]]
+collision_layer = 0
+script = ExtResource("1_km0mb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_i25wv")
@@ -125,3 +131,7 @@ libraries = {
 "": SubResource("AnimationLibrary_mp1py")
 }
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_hn2g5")

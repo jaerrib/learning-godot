@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://b66dpvsl1ull7"]
+[gd_scene load_steps=8 format=4 uid="uid://b66dpvsl1ull7"]
 
 [ext_resource type="Texture2D" uid="uid://c7yuvmk38yy0j" path="res://assets/tiles/Terrain (16x16).png" id="1_05qyw"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_m1b5o"]
 [ext_resource type="PackedScene" uid="uid://bgmimmu1vv08v" path="res://scenes/player/player.tscn" id="2_1douu"]
 [ext_resource type="PackedScene" uid="uid://bijvjynn5pea0" path="res://scenes/object_maker/object_maker.tscn" id="3_25s5n"]
+[ext_resource type="PackedScene" uid="uid://ctw5jfabbj7e7" path="res://scenes/enemies/snail.tscn" id="5_qp7id"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs713"]
 texture = ExtResource("1_05qyw")
@@ -215,3 +216,8 @@ tile_set = SubResource("TileSet_a7yyv")
 position = Vector2(179, -158)
 
 [node name="ObjectMaker" parent="." instance=ExtResource("3_25s5n")]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Snail" parent="Enemies" instance=ExtResource("5_qp7id")]
+position = Vector2(314, -25)

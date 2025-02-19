@@ -4,10 +4,9 @@ extends Area2D
 class_name Bullet
 
 
-var _direction: Vector2 = Vector2.RIGHT
+var _direction: Vector2 = Vector2.LEFT
 var _life_span: float = 5.0
 var _life_time: float = 0.0
-
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

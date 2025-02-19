@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bgmimmu1vv08v"]
+[gd_scene load_steps=13 format=3 uid="uid://bgmimmu1vv08v"]
 
 [ext_resource type="Texture2D" uid="uid://ccbn4qbx65nja" path="res://assets/player/player.png" id="1_i25wv"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_km0mb"]
 [ext_resource type="PackedScene" uid="uid://ddf235djo5tb8" path="res://scenes/player_cam/player_cam.tscn" id="3_xmx6c"]
+[ext_resource type="PackedScene" uid="uid://bi2goefl8wtff" path="res://scenes/shooter/shooter.tscn" id="4_jlyho"]
 
 [sub_resource type="Animation" id="Animation_g3hhb"]
 length = 0.001
@@ -146,3 +147,5 @@ offset_right = 48.0
 offset_bottom = -13.0
 theme_override_font_sizes/font_size = 12
 text = "Placeholder Text"
+
+[node name="Shooter" parent="." instance=ExtResource("4_jlyho")]

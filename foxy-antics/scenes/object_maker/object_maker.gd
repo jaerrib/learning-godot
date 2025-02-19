@@ -22,4 +22,4 @@ func on_create_bullet(
 			return
 		var nb: Bullet = OBJECT_SCENES[ob_type].instantiate()
 		nb.setup(pos, dir, speed, life_span)
-		call_deferred("add_child", nb )
+		call_deferred("add_child", nb)

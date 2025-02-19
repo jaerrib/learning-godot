@@ -9,6 +9,7 @@ script = ExtResource("1_8pfnx")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
 
 [node name="HitBox" type="Area2D" parent="."]
 collision_layer = 4

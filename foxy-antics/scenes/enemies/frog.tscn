@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
-"speed": 2.0
+"speed": 4.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bowbn"]
@@ -76,7 +76,7 @@ script = ExtResource("2_rngcd")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_1wpku")
-animation = &"idle"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
@@ -87,3 +87,6 @@ position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_fsyoy")
 
 [node name="JumpTimer" type="Timer" parent="." index="4"]
+one_shot = true
+
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://s8wvvnvvmoqd"]
+[gd_scene load_steps=12 format=3 uid="uid://s8wvvnvvmoqd"]
 
 [ext_resource type="PackedScene" uid="uid://cc2t5rcgtnxu6" path="res://scenes/enemy_base/enemy_base.tscn" id="1_3gbhp"]
 [ext_resource type="Texture2D" uid="uid://br10bjl8yeykx" path="res://assets/enemies/eagle/eagle-attack.png" id="2_b4jrx"]
+[ext_resource type="Script" path="res://scenes/enemies/eagle.gd" id="2_miyvh"]
 [ext_resource type="PackedScene" uid="uid://bi2goefl8wtff" path="res://scenes/shooter/shooter.tscn" id="3_73kod"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_57chh"]
@@ -40,14 +41,26 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ieom"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmu2q"]
+radius = 2.0
+
 [node name="Eagle" instance=ExtResource("1_3gbhp")]
 collision_mask = 0
+script = ExtResource("2_miyvh")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_yir5i")
 animation = &"fly"
 frame = 3
 frame_progress = 0.325532
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_8ieom")
+
+[node name="CollisionShape2D" parent="." index="3"]
+shape = SubResource("CircleShape2D_hmu2q")
 
 [node name="DirectionTimer" type="Timer" parent="." index="4"]
 wait_time = 3.0
@@ -62,3 +75,5 @@ collide_with_bodies = false
 speed = 120.0
 bullet_key = 3
 shoot_delay = 1.5
+
+[connection signal="timeout" from="DirectionTimer" to="." method="_on_direction_timer_timeout"]

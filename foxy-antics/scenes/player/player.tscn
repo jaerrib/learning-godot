@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgmimmu1vv08v"]
+[gd_scene load_steps=14 format=3 uid="uid://bgmimmu1vv08v"]
 
 [ext_resource type="Texture2D" uid="uid://ccbn4qbx65nja" path="res://assets/player/player.png" id="1_i25wv"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_km0mb"]
@@ -119,6 +119,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hn2g5"]
 size = Vector2(10, 18)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3op7"]
+radius = 6.0
+height = 18.0
+
 [node name="Player" type="CharacterBody2D" groups=["Moveables", "Player"]]
 collision_layer = 0
 script = ExtResource("1_km0mb")
@@ -149,3 +153,11 @@ theme_override_font_sizes/font_size = 12
 text = "Placeholder Text"
 
 [node name="Shooter" parent="." instance=ExtResource("4_jlyho")]
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 20
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_x3op7")

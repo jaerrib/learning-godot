@@ -14,3 +14,6 @@ signal on_create_object(
 	pos: Vector2,
 	ob_type: Constants.ObjectType,
 )
+
+
+signal on_pickup_hit(points:int)

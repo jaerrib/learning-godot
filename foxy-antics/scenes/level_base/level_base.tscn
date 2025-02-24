@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://b66dpvsl1ull7"]
+[gd_scene load_steps=13 format=4 uid="uid://b66dpvsl1ull7"]
 
 [ext_resource type="Texture2D" uid="uid://c7yuvmk38yy0j" path="res://assets/tiles/Terrain (16x16).png" id="1_05qyw"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_m1b5o"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ctw5jfabbj7e7" path="res://scenes/enemies/snail.tscn" id="5_qp7id"]
 [ext_resource type="PackedScene" uid="uid://bnuahew84wt5p" path="res://scenes/enemies/frog.tscn" id="6_st55s"]
 [ext_resource type="PackedScene" uid="uid://s8wvvnvvmoqd" path="res://scenes/enemies/eagle.tscn" id="7_2lspu"]
+[ext_resource type="PackedScene" uid="uid://dyau2vdyug2ka" path="res://scenes/ball_spikes/ball_spikes.tscn" id="8_s0j0y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs713"]
 texture = ExtResource("1_05qyw")
@@ -205,6 +206,18 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_xs713")
 
+[sub_resource type="Curve2D" id="Curve2D_pb4si"]
+_data = {
+"points": PackedVector2Array(-14.3941, 25.2486, 14.3941, -25.2486, 69, -255, -42.3729, -13.7502, 42.3729, 13.7502, 194, -271, 11.0124, -21.1906, -11.0124, 21.1906, 245, -202, 41.2034, -18.167, -41.2034, 18.167, 205, -164, 28.0615, -9.26031, -28.0615, 9.26031, 89, -170, -18.4056, 15.8099, 18.4056, -15.8099, 69, -255)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_1f5od"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 50, -90, 0, 0, 0, 0, 50, -30, 0, 0, 0, 0, 50, -30, 0, 0, 0, 0, 50, -90, 0, 0, 0, 0, 50, -90)
+}
+point_count = 5
+
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_m1b5o")
 
@@ -232,3 +245,18 @@ position = Vector2(633, -28)
 
 [node name="Eagle" parent="Enemies" instance=ExtResource("7_2lspu")]
 position = Vector2(513, -274)
+
+[node name="Paths" type="Node2D" parent="."]
+
+[node name="Path2D" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_pb4si")
+
+[node name="BallSpikes" parent="Paths/Path2D" instance=ExtResource("8_s0j0y")]
+position = Vector2(69, -255)
+
+[node name="Path2D2" type="Path2D" parent="Paths"]
+curve = SubResource("Curve2D_1f5od")
+
+[node name="BallSpikes" parent="Paths/Path2D2" instance=ExtResource("8_s0j0y")]
+position = Vector2(50, -90)
+speed = 0.25

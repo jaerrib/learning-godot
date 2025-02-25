@@ -6,7 +6,7 @@ class_name Player
 
 enum PlayerState { IDLE, RUN, JUMP, FALL, HURT}
 
-
+ 
 const GRAVITY: float = 690.0
 const RUN_SPEED: float = 120.0
 const MAX_FALL: float = 400.0
@@ -17,9 +17,12 @@ const JUMP_VELOCITY: float = -260.0
 @onready var debug_label: Label = $DebugLabel
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shooter: Shooter = $Shooter
- 
+@onready var invincible_timer: Timer = $InvincibleTimer
+@onready var invincible_player: AnimationPlayer = $InvinciblePlayer
+
 
 var _state: PlayerState = PlayerState.IDLE
+var _invincible: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -92,3 +95,24 @@ func calculate_state() -> void:
 			set_state(PlayerState.FALL)
 		else:
 			set_state(PlayerState.JUMP)
+
+
+func go_invincible() -> void:
+	_invincible = true
+	invincible_player.play("invincible")
+	invincible_timer.start()
+
+
+func apply_hit() -> void:
+	if _invincible:
+		return
+	go_invincible()
+
+
+func _on_invincible_timer_timeout() -> void:
+	_invincible = false
+	invincible_player.stop()
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	apply_hit()

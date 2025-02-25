@@ -175,7 +175,6 @@ frame = 13
 libraries = {
 "": SubResource("AnimationLibrary_mp1py")
 }
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 6)
@@ -210,5 +209,10 @@ libraries = {
 "": SubResource("AnimationLibrary_vlt0s")
 }
 
+[node name="HurtTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="InvincibleTimer" to="." method="_on_invincible_timer_timeout"]
+[connection signal="timeout" from="HurtTimer" to="." method="_on_hurt_timer_timeout"]

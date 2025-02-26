@@ -6,7 +6,8 @@ class_name Player
 
 enum PlayerState { IDLE, RUN, JUMP, FALL, HURT }
 
- 
+
+const FALLEN_OFF: float = 200.0
 const GRAVITY: float = 690.0
 const RUN_SPEED: float = 120.0
 const MAX_FALL: float = 400.0
@@ -27,6 +28,7 @@ const KNOCKBACK: float = -50.0
 
 var _state: PlayerState = PlayerState.IDLE
 var _invincible: bool = false
+var _lives: int = 5
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,6 +38,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	fallen_off()
 	if not is_on_floor():
 		velocity.y += GRAVITY * delta
 	get_input()
@@ -44,6 +47,12 @@ func _physics_process(delta: float) -> void:
 	update_debug_label()
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
+
+
+func fallen_off() -> void:
+	if global_position.y < FALLEN_OFF:
+		return
+	reduce_lives(_lives)
 
 
 func update_debug_label() -> void:
@@ -107,6 +116,17 @@ func calculate_state() -> void:
 			set_state(PlayerState.JUMP)
 
 
+func reduce_lives(reduction: int) -> bool:
+	_lives -= reduction
+	SignalManager.on_player_hit.emit(_lives)
+	if _lives <=0:
+		SignalManager.on_game_over.emit()
+		set_physics_process(false)
+		print("PLAYER DIES")
+		return false
+	return true
+
+
 func go_invincible() -> void:
 	_invincible = true
 	invincible_player.play("invincible")
@@ -126,6 +146,8 @@ func apply_hurt_jump() -> void:
 func apply_hit() -> void:
 	if _invincible:
 		return
+	if reduce_lives(1) == false:
+		return 
 	go_invincible()
 	set_state(PlayerState.HURT)
 

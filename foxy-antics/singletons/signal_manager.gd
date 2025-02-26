@@ -16,4 +16,6 @@ signal on_create_object(
 )
 
 
-signal on_pickup_hit(points:int)
+signal on_pickup_hit(points: int)
+signal on_game_over
+signal on_player_hit(lives: int)

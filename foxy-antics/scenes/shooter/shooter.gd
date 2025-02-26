@@ -5,7 +5,7 @@ class_name Shooter
 
 
 @onready var shoot_timer: Timer = $ShootTimer
-@onready var sound: AudioStreamPlayer = $Sound
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 
 @export var speed: float = 50.0
@@ -33,7 +33,8 @@ func shoot(direction: Vector2) -> void:
 		speed,
 		bullet_key,
 	)
-	shoot_timer.start() 
+	shoot_timer.start()
+	SoundManager.play_clip(sound, SoundManager.SOUND_LASER)
 
 
 func _on_shoot_timer_timeout() -> void:

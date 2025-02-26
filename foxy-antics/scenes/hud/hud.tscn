@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://blurjakhm50k8"]
+[gd_scene load_steps=6 format=3 uid="uid://blurjakhm50k8"]
 
+[ext_resource type="Script" path="res://scenes/hud/hud.gd" id="1_2ykxv"]
 [ext_resource type="LabelSettings" uid="uid://c57087kb6t0iv" path="res://assets/LG_white_48.tres" id="1_dco2d"]
 [ext_resource type="Texture2D" uid="uid://bdql1qx6vjd0u" path="res://assets/items/pixel heart 2.png" id="2_ih46j"]
 [ext_resource type="LabelSettings" uid="uid://b2dyrr3deoxuq" path="res://assets/LG_blue_64.tres" id="3_tgjrk"]
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2ykxv")
 
 [node name="MC" type="MarginContainer" parent="."]
 layout_mode = 1

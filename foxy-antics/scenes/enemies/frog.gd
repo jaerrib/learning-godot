@@ -3,6 +3,7 @@ extends EnemyBase
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_timer: Timer = $JumpTimer
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 const JUMP_MIN_TIME: float = 2.0
 const JUMP_MAX_TIME: float = 4.0
@@ -47,6 +48,7 @@ func apply_jump() -> void:
 		velocity = JUMP_VELOCITY_R
 	_jump = false
 	animated_sprite_2d.play("jump")
+	SoundManager.play_clip(sound, SoundManager.SOUND_JUMP)
 	start_timer()
 
 

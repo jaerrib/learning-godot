@@ -89,4 +89,7 @@ shape = SubResource("RectangleShape2D_fsyoy")
 [node name="JumpTimer" type="Timer" parent="." index="4"]
 one_shot = true
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="." index="5"]
+volume_db = -10.0
+
 [connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

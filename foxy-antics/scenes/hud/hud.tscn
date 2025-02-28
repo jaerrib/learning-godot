@@ -76,6 +76,7 @@ grow_vertical = 2
 color = Color(0, 0.00392157, 0.0980392, 0.866667)
 
 [node name="VBLevelComplete" type="VBoxContainer" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -104,6 +105,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBGameOver" type="VBoxContainer" parent="ColorRect"]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

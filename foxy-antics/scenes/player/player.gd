@@ -130,7 +130,8 @@ func reduce_lives(reduction: int) -> bool:
 	if _lives <=0:
 		SignalManager.on_game_over.emit()
 		set_physics_process(false)
-		print("PLAYER DIES")
+		animation_player.stop()
+		invincible_player.stop()
 		return false
 	return true
 

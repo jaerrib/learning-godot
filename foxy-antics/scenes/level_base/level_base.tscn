@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://b66dpvsl1ull7"]
+[gd_scene load_steps=16 format=4 uid="uid://b66dpvsl1ull7"]
 
 [ext_resource type="Texture2D" uid="uid://c7yuvmk38yy0j" path="res://assets/tiles/Terrain (16x16).png" id="1_05qyw"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_m1b5o"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dyau2vdyug2ka" path="res://scenes/ball_spikes/ball_spikes.tscn" id="8_s0j0y"]
 [ext_resource type="PackedScene" uid="uid://cpw5mqivi40lt" path="res://scenes/floor_spikes/floor_spikes.tscn" id="9_efn24"]
 [ext_resource type="PackedScene" uid="uid://blurjakhm50k8" path="res://scenes/hud/hud.tscn" id="10_72sjw"]
+[ext_resource type="PackedScene" uid="uid://cafgc73je74ud" path="res://scenes/moving_platform/moving_platform.tscn" id="10_wnoe6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs713"]
 texture = ExtResource("1_05qyw")
@@ -277,6 +278,30 @@ position = Vector2(465, -16)
 
 [node name="FloorSpikes4" parent="Dangers" instance=ExtResource("9_efn24")]
 position = Vector2(481, -16)
+
+[node name="MovingPlatforms" type="Node2D" parent="."]
+position = Vector2(513, -274)
+
+[node name="P1" type="Marker2D" parent="MovingPlatforms"]
+position = Vector2(-526, 218)
+
+[node name="MovingPlatform" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_wnoe6")]
+position = Vector2(-616, 218)
+destination = NodePath("../P1")
+
+[node name="P2" type="Marker2D" parent="MovingPlatforms"]
+position = Vector2(-256, 100)
+
+[node name="MovingPlatform2" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_wnoe6")]
+position = Vector2(-256, 220)
+destination = NodePath("../P2")
+
+[node name="P3" type="Marker2D" parent="MovingPlatforms"]
+position = Vector2(-658, -7)
+
+[node name="MovingPlatform3" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_wnoe6")]
+position = Vector2(-489, 113)
+destination = NodePath("../P3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

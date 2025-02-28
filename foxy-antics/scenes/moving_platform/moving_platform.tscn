@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cafgc73je74ud"]
+
+[ext_resource type="Texture2D" uid="uid://c7yuvmk38yy0j" path="res://assets/tiles/Terrain (16x16).png" id="1_irnc2"]
+[ext_resource type="Script" path="res://scenes/moving_platform/moving_platform.gd" id="1_lfscs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_serwu"]
+size = Vector2(46, 7)
+
+[node name="MovingPlatform" type="AnimatableBody2D"]
+script = ExtResource("1_lfscs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_irnc2")
+region_enabled = true
+region_rect = Rect2(1, 65, 46, 7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_serwu")
+one_way_collision = true

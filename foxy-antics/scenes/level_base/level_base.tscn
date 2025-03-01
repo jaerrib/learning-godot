@@ -1,16 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://b66dpvsl1ull7"]
+[gd_scene load_steps=11 format=4 uid="uid://b66dpvsl1ull7"]
 
 [ext_resource type="Texture2D" uid="uid://c7yuvmk38yy0j" path="res://assets/tiles/Terrain (16x16).png" id="1_05qyw"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_m1b5o"]
 [ext_resource type="PackedScene" uid="uid://bgmimmu1vv08v" path="res://scenes/player/player.tscn" id="2_1douu"]
 [ext_resource type="PackedScene" uid="uid://bijvjynn5pea0" path="res://scenes/object_maker/object_maker.tscn" id="3_25s5n"]
-[ext_resource type="PackedScene" uid="uid://ctw5jfabbj7e7" path="res://scenes/enemies/snail.tscn" id="5_qp7id"]
-[ext_resource type="PackedScene" uid="uid://bnuahew84wt5p" path="res://scenes/enemies/frog.tscn" id="6_st55s"]
-[ext_resource type="PackedScene" uid="uid://s8wvvnvvmoqd" path="res://scenes/enemies/eagle.tscn" id="7_2lspu"]
-[ext_resource type="PackedScene" uid="uid://dyau2vdyug2ka" path="res://scenes/ball_spikes/ball_spikes.tscn" id="8_s0j0y"]
-[ext_resource type="PackedScene" uid="uid://cpw5mqivi40lt" path="res://scenes/floor_spikes/floor_spikes.tscn" id="9_efn24"]
 [ext_resource type="PackedScene" uid="uid://blurjakhm50k8" path="res://scenes/hud/hud.tscn" id="10_72sjw"]
-[ext_resource type="PackedScene" uid="uid://cafgc73je74ud" path="res://scenes/moving_platform/moving_platform.tscn" id="10_wnoe6"]
 [ext_resource type="PackedScene" uid="uid://cw3q71qnqigix" path="res://scenes/boss/boss.tscn" id="12_2effb"]
 [ext_resource type="PackedScene" uid="uid://qctr3uetjjwe" path="res://scenes/checkpoint/checkpoint.tscn" id="13_wnp4q"]
 [ext_resource type="PackedScene" uid="uid://b2q4vl66rystd" path="res://scenes/scrolling_bg/scrolling_bg.tscn" id="14_0bj16"]
@@ -212,109 +206,39 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_xs713")
 
-[sub_resource type="Curve2D" id="Curve2D_pb4si"]
-_data = {
-"points": PackedVector2Array(-14.3941, 25.2486, 14.3941, -25.2486, 69, -255, -42.3729, -13.7502, 42.3729, 13.7502, 194, -271, 11.0124, -21.1906, -11.0124, 21.1906, 245, -202, 41.2034, -18.167, -41.2034, 18.167, 205, -164, 28.0615, -9.26031, -28.0615, 9.26031, 89, -170, -18.4056, 15.8099, 18.4056, -15.8099, 69, -255)
-}
-point_count = 6
-
-[sub_resource type="Curve2D" id="Curve2D_1f5od"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 50, -90, 0, 0, 0, 0, 50, -30, 0, 0, 0, 0, 50, -30, 0, 0, 0, 0, 50, -90, 0, 0, 0, 0, 50, -90)
-}
-point_count = 5
-
 [node name="LevelBase" type="Node2D"]
 script = ExtResource("1_m1b5o")
 
 [node name="TileMapLayers" type="Node2D" parent="."]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="TileMapLayers"]
-tile_map_data = PackedByteArray("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")
+tile_map_data = PackedByteArray("AAAAAP//AAAHAAAAAAABAP//AAAHAAAAAAACAP//AAAHAAAAAAADAP//AAAHAAAAAAAEAP//AAAHAAAAAAAFAP//AAAHAAAAAAAGAP//AAAHAAAAAAAHAP//AAAHAAAAAAAIAP//AAAHAAAAAAD/////AAAHAAAAAAD+////AAAHAAAAAAD9////AAAHAAAAAAD8////AAAHAAAAAAD7////AAAHAAAAAAD6////AAAHAAAAAAD5////AAAHAAAAAAD4////AAAHAAAAAAD3////AAAHAAAAAAD2////AAAGAAAAAAAJAP//AAAIAAAAAAA=")
 tile_set = SubResource("TileSet_a7yyv")
 
 [node name="Player" parent="." instance=ExtResource("2_1douu")]
-position = Vector2(198, -80)
+position = Vector2(12, -32)
 
 [node name="ObjectMaker" parent="." instance=ExtResource("3_25s5n")]
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Snail" parent="Enemies" instance=ExtResource("5_qp7id")]
-position = Vector2(314, -25)
-
-[node name="Frog" parent="Enemies" instance=ExtResource("6_st55s")]
-position = Vector2(-218, -266)
-
-[node name="Frog2" parent="Enemies" instance=ExtResource("6_st55s")]
-position = Vector2(633, -28)
-
-[node name="Eagle" parent="Enemies" instance=ExtResource("7_2lspu")]
-position = Vector2(513, -274)
-
 [node name="Paths" type="Node2D" parent="."]
-
-[node name="Path2D" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_pb4si")
-
-[node name="BallSpikes" parent="Paths/Path2D" instance=ExtResource("8_s0j0y")]
-position = Vector2(69, -255)
-
-[node name="Path2D2" type="Path2D" parent="Paths"]
-curve = SubResource("Curve2D_1f5od")
-
-[node name="BallSpikes" parent="Paths/Path2D2" instance=ExtResource("8_s0j0y")]
-position = Vector2(50, -90)
-speed = 0.25
 
 [node name="Dangers" type="Node2D" parent="."]
 z_index = -1
 
-[node name="FloorSpikes" parent="Dangers" instance=ExtResource("9_efn24")]
-position = Vector2(25, -16)
-
-[node name="FloorSpikes2" parent="Dangers" instance=ExtResource("9_efn24")]
-position = Vector2(9, -16)
-
-[node name="FloorSpikes3" parent="Dangers" instance=ExtResource("9_efn24")]
-position = Vector2(465, -16)
-
-[node name="FloorSpikes4" parent="Dangers" instance=ExtResource("9_efn24")]
-position = Vector2(481, -16)
-
 [node name="MovingPlatforms" type="Node2D" parent="."]
 position = Vector2(513, -274)
-
-[node name="P1" type="Marker2D" parent="MovingPlatforms"]
-position = Vector2(-526, 218)
-
-[node name="MovingPlatform" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_wnoe6")]
-position = Vector2(-616, 218)
-destination = NodePath("../P1")
-
-[node name="P2" type="Marker2D" parent="MovingPlatforms"]
-position = Vector2(-256, 100)
-
-[node name="MovingPlatform2" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_wnoe6")]
-position = Vector2(-256, 220)
-destination = NodePath("../P2")
-
-[node name="P3" type="Marker2D" parent="MovingPlatforms"]
-position = Vector2(-658, -7)
-
-[node name="MovingPlatform3" parent="MovingPlatforms" node_paths=PackedStringArray("destination") instance=ExtResource("10_wnoe6")]
-position = Vector2(-489, 113)
-destination = NodePath("../P3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("10_72sjw")]
 
 [node name="Boss" parent="." instance=ExtResource("12_2effb")]
-position = Vector2(1000, -15)
+position = Vector2(121, -13)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_wnp4q")]
-position = Vector2(1104, -16)
+position = Vector2(132, -18)
 
 [node name="ScrollingBg" parent="." instance=ExtResource("14_0bj16")]
 level_number = 1

@@ -14,8 +14,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if Input.is_action_just_pressed("jump"):
+		GameManager.load_next_level_scene()
+	
 
 func set_scores() -> void:
 	for c in grid_container.get_children():

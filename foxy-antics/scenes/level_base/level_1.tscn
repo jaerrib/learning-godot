@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=4 uid="uid://wpslpkvtw5ab"]
+
+[ext_resource type="PackedScene" uid="uid://b66dpvsl1ull7" path="res://scenes/level_base/level_base.tscn" id="1_o1nsi"]
+
+[node name="Level_1" instance=ExtResource("1_o1nsi")]
+
+[node name="TileMapLayer" parent="TileMapLayers" index="0"]
+tile_map_data = PackedByteArray("AAAAAP//AAAHAAAAAAABAP//AAAHAAAAAAACAP//AAAHAAAAAAADAP//AAAHAAAAAAAEAP//AAAHAAAAAAAFAP//AAAHAAAAAAAGAP//AAAHAAAAAAAHAP//AAAHAAAAAAAIAP//AAAHAAAAAAD/////AAAHAAAAAAD+////AAAHAAAAAAD9////AAAHAAAAAAD8////AAAHAAAAAAD7////AAAHAAAAAAD6////AAAHAAAAAAD5////AAAHAAAAAAD4////AAAHAAAAAAD3////AAAHAAAAAAD2////AAAGAAAAAAAJAP//AAAIAAAAAAD4//7/AAASAAQAAAA=")

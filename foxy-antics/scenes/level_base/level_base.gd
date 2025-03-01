@@ -8,7 +8,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("advance"):
+		GameManager.load_next_level_scene()
+	if Input.is_action_just_pressed("quit"):
+		GameManager.load_main_scene()
 
 
 func on_game_over() -> void:

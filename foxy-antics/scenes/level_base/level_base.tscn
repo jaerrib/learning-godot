@@ -204,6 +204,7 @@ texture = ExtResource("1_05qyw")
 [sub_resource type="TileSet" id="TileSet_a7yyv"]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
+terrain_set_0/mode = 0
 sources/0 = SubResource("TileSetAtlasSource_xs713")
 
 [node name="LevelBase" type="Node2D"]

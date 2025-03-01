@@ -14,13 +14,11 @@ const TRIGGER_CONDITION: String = "parameters/conditions/on_trigger"
 
 
 var _invincible: bool = false
-var _tween: Tween
 
 
 func reduce_lives() -> void:
 	lives -=1
 	if lives <= 0:
-		_tween.kill()
 		SignalManager.on_create_object.emit(global_position, Constants.ObjectType.EXPLOSION)
 		SignalManager.on_boss_killed.emit(points)
 		queue_free()

@@ -1,6 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://qctr3uetjjwe"]
+[gd_scene load_steps=14 format=3 uid="uid://qctr3uetjjwe"]
 
+[ext_resource type="Script" path="res://scenes/checkpoint/checkpoint.gd" id="1_73hr5"]
 [ext_resource type="Texture2D" uid="uid://bscx8lckt2ys2" path="res://assets/items/checkpoint.png" id="1_htw4p"]
+[ext_resource type="AudioStream" uid="uid://bbxqml0ap5488" path="res://assets/sound/checkpoint.wav" id="3_dbo7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4co3k"]
 size = Vector2(4, 40)
@@ -88,6 +90,7 @@ transitions = ["Start", "open", SubResource("AnimationNodeStateMachineTransition
 collision_layer = 0
 collision_mask = 2
 monitoring = false
+script = ExtResource("1_73hr5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -110,3 +113,8 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_kqs8c")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/on_trigger = false
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_dbo7f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -167,7 +167,7 @@ func _on_invincible_timer_timeout() -> void:
 	invincible_player.stop()
 
 
-func _on_hit_box_area_entered(area: Area2D) -> void:
+func _on_hit_box_area_entered(_area: Area2D) -> void:
 	apply_hit()
 
 

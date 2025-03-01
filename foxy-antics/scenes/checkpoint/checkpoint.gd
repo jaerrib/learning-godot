@@ -24,8 +24,9 @@ func on_boss_killed(_p: int) -> void:
 	SoundManager.play_clip(sound, SoundManager.SOUND_CHECKPOINT)
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	if _win_sound_triggered:
 		return
 	SoundManager.play_clip(sound, SoundManager.SOUND_WIN)
 	_win_sound_triggered = true
+	SignalManager.on_level_complete.emit()

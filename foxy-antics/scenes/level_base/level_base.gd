@@ -2,12 +2,12 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
+func _ready() -> void:	
 	SignalManager.on_game_over.connect(on_game_over)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("advance"):
 		GameManager.load_next_level_scene()
 	if Input.is_action_just_pressed("quit"):

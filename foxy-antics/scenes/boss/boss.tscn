@@ -242,5 +242,8 @@ tree_root = SubResource("AnimationNodeStateMachine_0gci6")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/on_trigger = false
 
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -14.0
+
 [connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
 [connection signal="area_entered" from="Visual/HitBox" to="." method="_on_hit_box_area_entered"]

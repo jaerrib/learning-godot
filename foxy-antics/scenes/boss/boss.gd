@@ -11,10 +11,11 @@ const TRIGGER_CONDITION: String = "parameters/conditions/on_trigger"
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: AnimationNodeStateMachinePlayback  = $AnimationTree["parameters/playback"]
 @onready var hit_box: Area2D = $Visual/HitBox
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 
 var _invincible: bool = false
-
+var _arrival_triggered: bool = false
 
 func reduce_lives() -> void:
 	lives -=1
@@ -44,8 +45,13 @@ func take_damage() -> void:
 
 
 func _on_trigger_area_entered(_area: Area2D) -> void:
-	animation_tree[TRIGGER_CONDITION] = true
-	hit_box.monitoring = true
+	if _arrival_triggered:
+		return
+	else:
+		SoundManager.play_clip(sound, SoundManager.SOUND_BOSS_ARRIVE)
+		animation_tree[TRIGGER_CONDITION] = true
+		hit_box.monitoring = true
+		_arrival_triggered = true
 
 
 func _on_hit_box_area_entered(_area: Area2D) -> void:

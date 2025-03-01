@@ -309,4 +309,4 @@ destination = NodePath("../P3")
 [node name="Hud" parent="CanvasLayer" instance=ExtResource("10_72sjw")]
 
 [node name="Boss" parent="." instance=ExtResource("12_2effb")]
-position = Vector2(1304, -16)
+position = Vector2(1000, -15)

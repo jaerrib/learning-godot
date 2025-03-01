@@ -19,6 +19,7 @@ var _invincible: bool = false
 func reduce_lives() -> void:
 	lives -=1
 	if lives <= 0:
+		SignalManager.on_create_object.emit(global_position, Constants.ObjectType.EXPLOSION)
 		SignalManager.on_boss_killed.emit(points)
 		queue_free()
 func tween_hit() -> void:

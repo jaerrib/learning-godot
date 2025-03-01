@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://52ydxtn30hiy"]
+
+[ext_resource type="Texture2D" uid="uid://3tafhig1y65o" path="res://assets/backgrounds/game_background_1/game_background_1.png" id="1_eqrth"]
+[ext_resource type="Script" path="res://scenes/main/main.gd" id="1_lrumv"]
+[ext_resource type="LabelSettings" uid="uid://dgkqd56s23mfw" path="res://assets/LG_pink_96.tres" id="2_78swj"]
+[ext_resource type="AudioStream" uid="uid://c68360600js7b" path="res://assets/sound/Farm Frolics.ogg" id="3_g3na7"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lrumv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_eqrth")
+expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.239216, 0.768627)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.5
+offset_top = -48.5
+offset_right = 270.5
+offset_bottom = 48.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Foxy Antics"
+label_settings = ExtResource("2_78swj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_g3na7")
+volume_db = -14.0
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 24
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
+columns = 5

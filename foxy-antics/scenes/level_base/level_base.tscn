@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b66dpvsl1ull7"]
+[gd_scene load_steps=19 format=4 uid="uid://b66dpvsl1ull7"]
 
 [ext_resource type="Texture2D" uid="uid://c7yuvmk38yy0j" path="res://assets/tiles/Terrain (16x16).png" id="1_05qyw"]
 [ext_resource type="Script" path="res://scenes/level_base/level_base.gd" id="1_m1b5o"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cafgc73je74ud" path="res://scenes/moving_platform/moving_platform.tscn" id="10_wnoe6"]
 [ext_resource type="PackedScene" uid="uid://cw3q71qnqigix" path="res://scenes/boss/boss.tscn" id="12_2effb"]
 [ext_resource type="PackedScene" uid="uid://qctr3uetjjwe" path="res://scenes/checkpoint/checkpoint.tscn" id="13_wnp4q"]
+[ext_resource type="PackedScene" uid="uid://b2q4vl66rystd" path="res://scenes/scrolling_bg/scrolling_bg.tscn" id="14_0bj16"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xs713"]
 texture = ExtResource("1_05qyw")
@@ -314,3 +315,6 @@ position = Vector2(1000, -15)
 
 [node name="Checkpoint" parent="." instance=ExtResource("13_wnp4q")]
 position = Vector2(1104, -16)
+
+[node name="ScrollingBg" parent="." instance=ExtResource("14_0bj16")]
+level_number = 1

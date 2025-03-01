@@ -27,8 +27,8 @@ func reduce_lives() -> void:
 
 
 func tween_hit() -> void:
-	_tween = get_tree().create_tween()
-	_tween.tween_property(visual, "position", Vector2.ZERO, 1.6)
+	var tween = create_tween()
+	tween.tween_property(visual, "position", Vector2.ZERO, 1.6)
 
 
 func set_invincible(v: bool) -> void:

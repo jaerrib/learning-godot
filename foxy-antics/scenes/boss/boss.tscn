@@ -127,6 +127,20 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0.690196, 0, 0.690196, 1), Color(1, 1, 1, 1), Color(0.690196, 0, 0.690196, 1), Color(1, 1, 1, 1), Color(0.690196, 0, 0.690196, 1), Color(1, 1, 1, 1), Color(0.690196, 0, 0.690196, 1), Color(1, 1, 1, 1), Color(0.690196, 0, 0.690196, 1), Color(1, 1, 1, 1)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_invincible"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a1iyc"]
 _data = {
@@ -228,3 +242,4 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/on_trigger = false
 
 [connection signal="area_entered" from="Trigger" to="." method="_on_trigger_area_entered"]
+[connection signal="area_entered" from="Visual/HitBox" to="." method="_on_hit_box_area_entered"]

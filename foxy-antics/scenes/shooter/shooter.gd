@@ -8,8 +8,8 @@ class_name Shooter
 @onready var sound: AudioStreamPlayer2D = $Sound
 
 
-@export var speed: float = 50.0
-@export var life_span: float = 10.0
+@export var speed: float = 75.0
+@export var life_span: float = 1.0
 @export var bullet_key: Constants.ObjectType
 @export var shoot_delay: float = 0.7
 

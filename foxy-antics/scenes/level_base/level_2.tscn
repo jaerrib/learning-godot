@@ -47,28 +47,28 @@ position = Vector2(-529, -458)
 position = Vector2(203, -166)
 
 [node name="Eagle2" parent="Enemies" index="8" instance=ExtResource("3_sigys")]
-position = Vector2(-821, -720)
+position = Vector2(-821, -575)
 
 [node name="Eagle3" parent="Enemies" index="9" instance=ExtResource("3_sigys")]
-position = Vector2(-634, -678)
+position = Vector2(-634, -575)
 
 [node name="Eagle4" parent="Enemies" index="10" instance=ExtResource("3_sigys")]
-position = Vector2(-438, -675)
+position = Vector2(-438, -575)
 
 [node name="Eagle5" parent="Enemies" index="11" instance=ExtResource("3_sigys")]
-position = Vector2(-1654, -532)
+position = Vector2(-1654, -750)
 
 [node name="Eagle6" parent="Enemies" index="12" instance=ExtResource("3_sigys")]
-position = Vector2(-1200, -850)
+position = Vector2(-1200, -750)
 
 [node name="Eagle7" parent="Enemies" index="13" instance=ExtResource("3_sigys")]
-position = Vector2(-1300, -850)
+position = Vector2(-1300, -750)
 
 [node name="Eagle8" parent="Enemies" index="14" instance=ExtResource("3_sigys")]
-position = Vector2(-1400, -850)
+position = Vector2(-1400, -750)
 
 [node name="Eagle9" parent="Enemies" index="15" instance=ExtResource("3_sigys")]
-position = Vector2(-1500, -850)
+position = Vector2(-1500, -750)
 
 [node name="Frog" parent="Enemies" index="16" instance=ExtResource("4_cl11g")]
 position = Vector2(-400, -285)

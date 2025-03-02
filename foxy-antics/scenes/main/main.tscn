@@ -53,7 +53,7 @@ vertical_alignment = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_g3na7")
-volume_db = -14.0
+volume_db = -10.0
 autoplay = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

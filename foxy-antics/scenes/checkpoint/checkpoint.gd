@@ -15,6 +15,7 @@ var _win_sound_triggered: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.on_boss_killed.connect(on_boss_killed)
+	SignalManager.on_non_boss_level_passed.connect(on_boss_killed)
 
 
 func on_boss_killed(_p: int) -> void:

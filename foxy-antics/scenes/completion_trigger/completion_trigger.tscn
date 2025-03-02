@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://tuiau2q7v1u2"]
+
+[ext_resource type="Script" path="res://scenes/completion_trigger/completion_trigger.gd" id="1_toqpp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5irg"]
+size = Vector2(10, 240)
+
+[node name="CompletionTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_toqpp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_j5irg")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

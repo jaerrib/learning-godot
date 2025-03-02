@@ -1,8 +1,11 @@
 extends Node2D
 
 
+@onready var music: AudioStreamPlayer = $Music
+
+
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:	
+func _ready() -> void:
 	SignalManager.on_game_over.connect(on_game_over)
 	SignalManager.on_level_complete.connect(on_game_over)
 

@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm4gcqmx4snus"]
+
+[ext_resource type="Texture2D" uid="uid://btuuec8ipxwm7" path="res://assets/Purple.png" id="1_67ch0"]
+[ext_resource type="TileSet" uid="uid://c0ndnox7dlyc" path="res://assets/level_tiles.tres" id="2_m2odg"]
+
+[node name="Level" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_67ch0")
+stretch_mode = 1
+
+[node name="TileLayers" type="Node2D" parent="."]
+
+[node name="Floor" type="TileMapLayer" parent="TileLayers"]
+tile_set = ExtResource("2_m2odg")
+
+[node name="Wall" type="TileMapLayer" parent="TileLayers"]
+tile_set = ExtResource("2_m2odg")
+
+[node name="Targets" type="TileMapLayer" parent="TileLayers"]
+tile_set = ExtResource("2_m2odg")
+
+[node name="Boxes" type="TileMapLayer" parent="TileLayers"]
+tile_set = ExtResource("2_m2odg")

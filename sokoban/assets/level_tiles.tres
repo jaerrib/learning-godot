@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://crfrieav1tanh" path="res://assets/spritesheet.png" id="1_5bb8d"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpgdu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3gfbd"]
 texture = ExtResource("1_5bb8d")
-texture_region_size = Vector2i(32, 16)
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -15,17 +15,7 @@ texture_region_size = Vector2i(32, 16)
 7:0/0 = 0
 8:0/0 = 0
 9:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
 
 [resource]
-tile_size = Vector2i(32, 16)
-sources/0 = SubResource("TileSetAtlasSource_vpgdu")
+tile_size = Vector2i(32, 32)
+sources/1 = SubResource("TileSetAtlasSource_3gfbd")

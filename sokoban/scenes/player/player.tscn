@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://dibfhboahuxt5"]
+
+[ext_resource type="Texture2D" uid="uid://qvjv3wrcv1ju" path="res://assets/player-idle.png" id="1_0rjhp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3ylg"]
+atlas = ExtResource("1_0rjhp")
+region = Rect2(0, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qobl4"]
+atlas = ExtResource("1_0rjhp")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhrpa"]
+atlas = ExtResource("1_0rjhp")
+region = Rect2(66, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c0yf"]
+atlas = ExtResource("1_0rjhp")
+region = Rect2(99, 0, 33, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwn4b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o3ylg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qobl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xhrpa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c0yf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[node name="Player" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dwn4b")
+animation = &"idle"
+frame = 3
+frame_progress = 0.451984
+offset = Vector2(18, 12)

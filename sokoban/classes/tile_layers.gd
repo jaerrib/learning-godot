@@ -21,3 +21,7 @@ var _layer_coords: Dictionary = {
 
 func add_coord(coord: Vector2i, lt: LayerType) -> void:
 	_layer_coords[lt].push_back(coord)
+
+
+func get_tiles_for_layer(lt: LayerType) -> Array[Vector2i]:
+	return _layer_coords[lt]

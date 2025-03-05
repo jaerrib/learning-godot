@@ -10,6 +10,7 @@ const SOURCE_ID = 1
 @onready var targets_tiles: TileMapLayer = $TileLayers/Targets
 @onready var boxes_tiles: TileMapLayer = $TileLayers/Boxes
 @onready var player: AnimatedSprite2D = $Player
+@onready var camera_2d: Camera2D = $Camera2D
 
 
 var _total_moves: int = 0
@@ -64,6 +65,19 @@ func clear_tiles() -> void:
 		tl.clear()
 
 
+func move_camera() -> void:
+	
+	var tmr: Rect2i = floor_tiles.get_used_rect()
+	
+	var tm_w_x: float = tmr.size.x * LevelData.TILE_SIZE
+	var tm_w_y: float = tmr.size.y * LevelData.TILE_SIZE
+	
+	var mid_x: float = tm_w_x / 2  + (tmr.position.x * LevelData.TILE_SIZE)
+	var mid_y: float = tm_w_y / 2  + (tmr.position.y * LevelData.TILE_SIZE)
+	
+	camera_2d.position = Vector2(mid_x, mid_y)
+
+
 func setup_level() -> void:
 	var ln: String = GameManager.get_level_selected()
 	var layout: LevelLayout = LevelData.get_level_data(ln)
@@ -76,3 +90,5 @@ func setup_level() -> void:
 	setup_layer(TileLayers.LayerType.TARGET, targets_tiles, layout)
 	setup_layer(TileLayers.LayerType.BOX, boxes_tiles, layout)
 	setup_layer(TileLayers.LayerType.TARGET_BOX, boxes_tiles, layout)
+	
+	move_camera()

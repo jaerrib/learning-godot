@@ -5,10 +5,10 @@ const SOURCE_ID = 1
 
 
 @onready var tile_layers: Node2D = $TileLayers
-@onready var floor: TileMapLayer = $TileLayers/Floor
-@onready var wall: TileMapLayer = $TileLayers/Wall
-@onready var targets: TileMapLayer = $TileLayers/Targets
-@onready var boxes: TileMapLayer = $TileLayers/Boxes
+@onready var floor_tiles: TileMapLayer = $TileLayers/Floor
+@onready var wall_tiles: TileMapLayer = $TileLayers/Wall
+@onready var targets_tiles: TileMapLayer = $TileLayers/Targets
+@onready var boxes_tiles: TileMapLayer = $TileLayers/Boxes
 @onready var player: AnimatedSprite2D = $Player
 
 
@@ -71,8 +71,8 @@ func setup_level() -> void:
 	_total_moves = 0
 	
 	clear_tiles()
-	setup_layer(TileLayers.LayerType.FLOOR, floor, layout)
-	setup_layer(TileLayers.LayerType.WALL, wall, layout)
-	setup_layer(TileLayers.LayerType.TARGET, targets, layout)
-	setup_layer(TileLayers.LayerType.BOX, boxes, layout)
-	setup_layer(TileLayers.LayerType.TARGET_BOX, boxes, layout)
+	setup_layer(TileLayers.LayerType.FLOOR, floor_tiles, layout)
+	setup_layer(TileLayers.LayerType.WALL, wall_tiles, layout)
+	setup_layer(TileLayers.LayerType.TARGET, targets_tiles, layout)
+	setup_layer(TileLayers.LayerType.BOX, boxes_tiles, layout)
+	setup_layer(TileLayers.LayerType.TARGET_BOX, boxes_tiles, layout)

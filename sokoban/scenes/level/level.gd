@@ -51,8 +51,17 @@ func place_player_on_tile(tile_coord: Vector2i) -> void:
 
 func player_move(direction: Vector2i) -> void:
 	var new_tile: Vector2i = _player_tile + direction
-	place_player_on_tile(new_tile)
+	var can_move: bool = true
+	if cell_is_wall(new_tile):
+		can_move = false
+		
+	if can_move:
+		_total_moves += 1
+		place_player_on_tile(new_tile)
 
+
+func cell_is_wall(cell: Vector2i) -> bool:
+	return cell in wall_tiles.get_used_cells()
 
 
 func get_atlas_coord_for_layer_type(lt: TileLayers.LayerType) -> Vector2i:

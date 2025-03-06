@@ -14,6 +14,7 @@ const SOURCE_ID = 1
 
 
 var _total_moves: int = 0
+var _player_tile: Vector2i = Vector2i.ZERO
 
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +24,20 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var md: Vector2i = Vector2i.ZERO
+	if Input.is_action_just_pressed("right"):
+		md = Vector2i.RIGHT
+		player.flip_h = false
+	elif Input.is_action_just_pressed("left"):
+		md = Vector2i.LEFT
+		player.flip_h = true
+	elif Input.is_action_just_pressed("up"):
+		md = Vector2i.UP
+	elif Input.is_action_just_pressed("down"):
+		md = Vector2i.DOWN
+		
+	if md != Vector2i.ZERO:
+		player_move(md)
 
 
 func place_player_on_tile(tile_coord: Vector2i) -> void:
@@ -32,6 +46,13 @@ func place_player_on_tile(tile_coord: Vector2i) -> void:
 		tile_coord.y * LevelData.TILE_SIZE,
 	) + tile_layers.position
 	player.position = np
+	_player_tile = tile_coord
+
+
+func player_move(direction: Vector2i) -> void:
+	var new_tile: Vector2i = _player_tile + direction
+	place_player_on_tile(new_tile)
+
 
 
 func get_atlas_coord_for_layer_type(lt: TileLayers.LayerType) -> Vector2i:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm4gcqmx4snus"]
+[gd_scene load_steps=6 format=3 uid="uid://cm4gcqmx4snus"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_3nj5l"]
 [ext_resource type="Texture2D" uid="uid://btuuec8ipxwm7" path="res://assets/Purple.png" id="1_67ch0"]
 [ext_resource type="TileSet" uid="uid://c0ndnox7dlyc" path="res://assets/level_tiles.tres" id="2_m2odg"]
 [ext_resource type="PackedScene" uid="uid://dibfhboahuxt5" path="res://scenes/player/player.tscn" id="3_0ke1j"]
+[ext_resource type="PackedScene" uid="uid://cnege0jgpdy6s" path="res://scenes/hud/hud.tscn" id="5_o14t5"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_3nj5l")
@@ -41,3 +42,7 @@ tile_set = ExtResource("2_m2odg")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 384)
 zoom = Vector2(1.5, 1.5)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Hud" parent="CanvasLayer2" instance=ExtResource("5_o14t5")]

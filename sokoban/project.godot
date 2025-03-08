@@ -20,6 +20,7 @@ config/icon="res://icon.png"
 LevelData="*res://singletons/level_data.gd"
 SignalManager="*res://singletons/signal_manager.gd"
 GameManager="*res://singletons/game_manager.gd"
+ScoreSync="*res://singletons/score_sync.gd"
 
 [display]
 

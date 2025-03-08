@@ -16,6 +16,7 @@ const SOURCE_ID = 1
 
 var _total_moves: int = 0
 var _player_tile: Vector2i = Vector2i.ZERO
+var _game_over: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,6 +30,9 @@ func _process(delta: float) -> void:
 		setup_level()
 	if Input.is_action_just_pressed("exit"):
 		GameManager.load_main_scene()
+	
+	if _game_over:
+		return
 	
 	var md: Vector2i = Vector2i.ZERO
 	if Input.is_action_just_pressed("right"):
@@ -44,6 +48,14 @@ func _process(delta: float) -> void:
 		
 	if md != Vector2i.ZERO:
 		player_move(md)
+
+
+func check_game_state() -> void:
+	for t in targets_tiles.get_used_cells():
+		if cell_is_box(t) == false:
+			return
+	_game_over = true
+	ScoreSync.level_completed(GameManager.get_level_selected(), _total_moves)
 
 
 func place_player_on_tile(tile_coord: Vector2i) -> void:
@@ -73,6 +85,7 @@ func player_move(direction: Vector2i) -> void:
 		if box_seen:
 			move_box(new_tile, direction)
 		place_player_on_tile(new_tile)
+		check_game_state()
 
 
 func cell_is_wall(cell: Vector2i) -> bool:
@@ -177,3 +190,5 @@ func setup_level() -> void:
 	move_camera()
 	
 	hud.new_game(ln)
+	
+	_game_over = false

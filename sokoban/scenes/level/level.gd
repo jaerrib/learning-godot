@@ -12,6 +12,7 @@ const SOURCE_ID = 1
 @onready var player: AnimatedSprite2D = $Player
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var hud: Hud = $CanvasLayer2/Hud
+@onready var game_over_ui: GameOverUI = $CanvasLayer2/GameOverUI
 
 
 var _total_moves: int = 0
@@ -55,6 +56,7 @@ func check_game_state() -> void:
 		if cell_is_box(t) == false:
 			return
 	_game_over = true
+	game_over_ui.game_over(GameManager.get_level_selected(), _total_moves)
 	ScoreSync.level_completed(GameManager.get_level_selected(), _total_moves)
 
 
@@ -190,5 +192,6 @@ func setup_level() -> void:
 	move_camera()
 	
 	hud.new_game(ln)
+	game_over_ui.new_game()
 	
 	_game_over = false

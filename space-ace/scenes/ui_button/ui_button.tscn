@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cky0pe7eoq2ha"]
+[gd_scene load_steps=6 format=3 uid="uid://cky0pe7eoq2ha"]
 
 [ext_resource type="Texture2D" uid="uid://cgs73xqxm3io4" path="res://assets/ui/blue_button00.png" id="1_5nn7i"]
 [ext_resource type="Texture2D" uid="uid://cpxvg7hpgnm6q" path="res://assets/ui/green_button00.png" id="2_ihxvo"]
 [ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="2_q1cok"]
+[ext_resource type="Texture2D" uid="uid://c0y26ms27vujx" path="res://assets/ui/yellow_button00.png" id="3_a1ybs"]
 [ext_resource type="Script" path="res://scenes/ui_button/ui_button.gd" id="3_av3wj"]
 
 [node name="UIButton" type="TextureButton"]
@@ -10,7 +11,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture_normal = ExtResource("1_5nn7i")
 texture_pressed = ExtResource("2_ihxvo")
-texture_hover = ExtResource("2_ihxvo")
+texture_hover = ExtResource("3_a1ybs")
 script = ExtResource("3_av3wj")
 
 [node name="Label" type="Label" parent="."]

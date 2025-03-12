@@ -11,15 +11,23 @@ class_name Player
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
+const MARGIN: float = 16.0
+
+
+var _upper_left: Vector2
+var _lower_right: Vector2
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	set_limits()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	var input = get_input()
 	global_position += input * delta * speed
+	global_position = global_position.clamp(_upper_left, _lower_right)
 
 
 func get_input() -> Vector2:
@@ -33,3 +41,9 @@ func get_input() -> Vector2:
 	else:
 		animation_player.play("fly")
 	return v.normalized()
+
+
+func set_limits() -> void:
+	var vp: Rect2 = get_viewport_rect()
+	_lower_right = Vector2(vp.size.x - MARGIN, vp.size.y - MARGIN)
+	_upper_left = Vector2(MARGIN, MARGIN)

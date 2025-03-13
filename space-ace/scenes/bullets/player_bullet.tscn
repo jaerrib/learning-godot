@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp2g4lkjgayij"]
+
+[ext_resource type="PackedScene" uid="uid://d07fxs1e2ul3i" path="res://scenes/bullets/base_bullet.tscn" id="1_3grx4"]
+[ext_resource type="Texture2D" uid="uid://c63xc0fbsdiut" path="res://assets/lasers/laserBlue03.png" id="2_bcowm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x6fe2"]
+radius = 2.0
+height = 16.0
+
+[node name="PlayerBullet" instance=ExtResource("1_3grx4")]
+collision_layer = 4
+collision_mask = 18
+
+[node name="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CapsuleShape2D_x6fe2")
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="1"]
+position = Vector2(-1.19209e-07, 0)
+scale = Vector2(0.2, 0.8)
+
+[node name="Sprite2D" parent="." index="2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_bcowm")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d07fxs1e2ul3i"]
+
+[ext_resource type="PackedScene" uid="uid://woecgufpbe4r" path="res://scenes/hit_box/hit_box.tscn" id="1_y6jis"]
+[ext_resource type="Script" path="res://scenes/bullets/base_bullet.gd" id="2_pn3d4"]
+
+[node name="BaseBullet" instance=ExtResource("1_y6jis")]
+script = ExtResource("2_pn3d4")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." index="1"]
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="2"]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

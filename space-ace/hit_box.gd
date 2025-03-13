@@ -18,6 +18,6 @@ func deactivate () -> void:
 func get_damage() -> int:
 	return damage
 
-
+	
 func _on_area_entered(area: Area2D) -> void:
 	pass # Replace with function body.

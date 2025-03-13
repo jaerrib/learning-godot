@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckmo3dba2esg0"]
+[gd_scene load_steps=7 format=3 uid="uid://ckmo3dba2esg0"]
 
 [ext_resource type="Texture2D" uid="uid://rib1d6ar2ump" path="res://assets/shield/spr_shield_small.png" id="1_1wxox"]
+[ext_resource type="Script" path="res://scenes/shield/shield.gd" id="1_tq7iw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0aahg"]
 radius = 29.0
@@ -46,6 +47,7 @@ _data = {
 [node name="Shield" type="Area2D"]
 collision_layer = 32
 collision_mask = 8
+script = ExtResource("1_tq7iw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = -1.5708
@@ -56,7 +58,7 @@ texture = ExtResource("1_1wxox")
 shape = SubResource("CircleShape2D_0aahg")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
+wait_time = 2.0
 one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -65,3 +67,5 @@ libraries = {
 }
 
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

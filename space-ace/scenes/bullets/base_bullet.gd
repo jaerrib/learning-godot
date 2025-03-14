@@ -4,7 +4,7 @@ extends HitBox
 class_name BaseBullet
 
 
-enum BulletTYpe { PLAYER, ENEMY, ENEMYBOMB }
+enum BulletType { PLAYER, ENEMY, ENEMYBOMB }
 
 
 var _direction: Vector2 = Vector2.UP

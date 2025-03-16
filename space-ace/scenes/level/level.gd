@@ -11,7 +11,7 @@ func _process(delta: float) -> void:
 		GameManager.load_main_scene()
 	if Input.is_action_just_pressed("maker"):
 		SignalManager.on_create_bullet.emit(
-				Vector2(100, -100),
+				Vector2(339, 100),
 				Vector2.DOWN,
 				150,
-				BaseBullet.BulletType.PLAYER)
+				BaseBullet.BulletType.ENEMY)

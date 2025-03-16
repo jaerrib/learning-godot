@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dv7owyd82kqdk"]
+
+[ext_resource type="Script" path="res://scenes/out_of_time/out_of_time.gd" id="1_fqpdq"]
+
+[node name="OutOfTime" type="Node"]
+script = ExtResource("1_fqpdq")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

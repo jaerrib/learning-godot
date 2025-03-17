@@ -7,3 +7,5 @@ signal on_create_bullet(
 	speed: float, 
 	bull_type: BaseBullet.BulletType,
 	)
+
+signal on_create_power_up(pos: Vector2, pu_type: PowerUp.PowerUpType)

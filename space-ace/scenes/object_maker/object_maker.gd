@@ -4,18 +4,24 @@ extends Node2D
 const ENEMY_BOMB = preload("res://scenes/bullets/enemy_bomb.tscn")
 const ENEMY_BULLET = preload("res://scenes/bullets/enemy_bullet.tscn")
 const PLAYER_BULLET = preload("res://scenes/bullets/player_bullet.tscn")
-
+const POWER_UP = preload("res://scenes/power_up/power_up.tscn")
 const ADD_OBJECT: String = "add_object"
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalManager.on_create_bullet.connect(on_create_bullet)
+	SignalManager.on_create_power_up.connect(on_create_power_up)
 
 
 func add_object(obj: Node, global_position: Vector2) -> void:
 	add_child(obj)
 	obj.global_position = global_position
+
+	
+func on_create_power_up(start_pos: Vector2, pu_type: PowerUp.PowerUpType) -> void:
+	var pu: PowerUp = POWER_UP.instantiate()
+	pu.set_power_up_type(pu_type)
+	call_deferred(ADD_OBJECT, pu, start_pos)
 
 
 func on_create_bullet(start_pos: Vector2, dir: Vector2, speed: float, bu_type: BaseBullet.BulletType ) -> void:
@@ -30,4 +36,4 @@ func on_create_bullet(start_pos: Vector2, dir: Vector2, speed: float, bu_type: B
 	if scene:
 		scene.setup(dir, speed)
 		call_deferred(ADD_OBJECT, scene, start_pos)
-	
+		

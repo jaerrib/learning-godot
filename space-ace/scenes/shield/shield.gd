@@ -30,6 +30,7 @@ func enable_shield() -> void:
 	_health = start_health
 	collision_shape_2d.call_deferred("set_disabled", false)
 	timer.start()
+	SoundManager.play_power_up_sound(PowerUp.PowerUpType.SHIELD, sound)
 	show()
 
  

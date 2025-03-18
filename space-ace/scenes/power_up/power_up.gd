@@ -25,6 +25,7 @@ var _power_up_type: PowerUpType = PowerUpType.HEALTH
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sprite_2d.texture = TEXTURES[_power_up_type]
+	SoundManager.play_powerup_deploy_sound(sound)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -23,8 +23,8 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var shield_flicker: float = randf_range(1.0, 2.0)
-	sprite_2d.self_modulate = Color(shield_flicker, shield_flicker, shield_flicker)
+	SpaceUtils.sprite_flicker(sprite_2d)
+
 
 func enable_shield() -> void:
 	_health = start_health

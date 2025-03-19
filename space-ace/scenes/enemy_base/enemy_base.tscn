@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cuwlj7ow4rh7q"]
+
+[ext_resource type="PackedScene" uid="uid://dv7owyd82kqdk" path="res://scenes/out_of_time/out_of_time.tscn" id="1_d0q1s"]
+[ext_resource type="Script" path="res://scenes/enemy_base/enemy_base.gd" id="1_hx4ug"]
+[ext_resource type="PackedScene" uid="uid://woecgufpbe4r" path="res://scenes/hit_box/hit_box.tscn" id="2_p7rcg"]
+
+[node name="EnemyBase" type="PathFollow2D"]
+rotates = false
+script = ExtResource("1_hx4ug")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+flip_v = true
+
+[node name="OutOfTime" parent="." instance=ExtResource("1_d0q1s")]
+
+[node name="HitBox" parent="." instance=ExtResource("2_p7rcg")]
+collision_layer = 2
+collision_mask = 4

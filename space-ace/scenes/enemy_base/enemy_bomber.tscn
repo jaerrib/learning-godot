@@ -1,0 +1,123 @@
+[gd_scene load_steps=19 format=3 uid="uid://xd873jxjapti"]
+
+[ext_resource type="PackedScene" uid="uid://cuwlj7ow4rh7q" path="res://scenes/enemy_base/enemy_base.tscn" id="1_n65ka"]
+[ext_resource type="Texture2D" uid="uid://b7tiq70kreuj5" path="res://assets/ships/bomber_1.png" id="2_0622u"]
+[ext_resource type="Texture2D" uid="uid://d0plxsglhrsbf" path="res://assets/ships/bomber_2.png" id="3_l77dh"]
+[ext_resource type="Texture2D" uid="uid://b73y5ervdyia7" path="res://assets/ships/bomber_3.png" id="4_aggdh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp7n0"]
+atlas = ExtResource("2_0622u")
+region = Rect2(0, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4epwu"]
+atlas = ExtResource("2_0622u")
+region = Rect2(48, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ac2d"]
+atlas = ExtResource("2_0622u")
+region = Rect2(96, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esjxu"]
+atlas = ExtResource("2_0622u")
+region = Rect2(144, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5y33"]
+atlas = ExtResource("3_l77dh")
+region = Rect2(0, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcg3c"]
+atlas = ExtResource("3_l77dh")
+region = Rect2(48, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16mvd"]
+atlas = ExtResource("3_l77dh")
+region = Rect2(96, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fetrd"]
+atlas = ExtResource("3_l77dh")
+region = Rect2(144, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anqfm"]
+atlas = ExtResource("4_aggdh")
+region = Rect2(0, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yt3ij"]
+atlas = ExtResource("4_aggdh")
+region = Rect2(48, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_428jc"]
+atlas = ExtResource("4_aggdh")
+region = Rect2(96, 0, 48, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pib8g"]
+atlas = ExtResource("4_aggdh")
+region = Rect2(144, 0, 48, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pcr3d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp7n0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4epwu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ac2d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esjxu")
+}],
+"loop": true,
+"name": &"bomber_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5y33")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcg3c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16mvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fetrd")
+}],
+"loop": true,
+"name": &"bomber_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anqfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yt3ij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_428jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pib8g")
+}],
+"loop": true,
+"name": &"bomber_3",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4sxtm"]
+radius = 19.0
+height = 54.0
+
+[node name="EnemyBomber" instance=ExtResource("1_n65ka")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_pcr3d")
+animation = &"bomber_3"
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CapsuleShape2D_4sxtm")
+
+[editable path="HitBox"]

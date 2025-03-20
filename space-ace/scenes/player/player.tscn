@@ -65,7 +65,7 @@ _data = {
 "turn": SubResource("Animation_8nf5b")
 }
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="Area2D" groups=["Player"]]
 collision_mask = 90
 script = ExtResource("1_r4sqo")
 

@@ -21,7 +21,7 @@ func add_object(obj: Node, global_position: Vector2) -> void:
 
 
 func on_create_explosion(start_pos: Vector2, et: Explosion.ExplosionType) -> void:
-	var scene: Explosion = EXPLOSION.instatiate()
+	var scene: Explosion = EXPLOSION.instantiate()
 	scene.setup(et)
 	call_deferred(ADD_OBJECT, scene, start_pos)
 

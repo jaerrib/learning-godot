@@ -4,7 +4,9 @@ extends Area2D
 class_name Player
 
 
-@export var speed: float = 250.0
+@export var speed: float = 200.0
+@export var bullet_speed: float = 280.0
+@export var bullet_direction: Vector2 = Vector2.UP
 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -29,6 +31,17 @@ func _process(delta: float) -> void:
 	var input = get_input()
 	global_position += input * delta * speed
 	global_position = global_position.clamp(_upper_left, _lower_right)
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+
+
+func shoot() -> void:
+	SignalManager.on_create_bullet.emit(
+		global_position,
+		bullet_direction,
+		bullet_speed,
+		BaseBullet.BulletType.PLAYER,
+	)
 
 
 func get_input() -> Vector2:

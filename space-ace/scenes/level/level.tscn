@@ -42,6 +42,7 @@ script = ExtResource("1_164x3")
 position = Vector2(339, 429)
 
 [node name="ObjectMaker" parent="." instance=ExtResource("4_ks0u4")]
+z_index = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_abr1h")

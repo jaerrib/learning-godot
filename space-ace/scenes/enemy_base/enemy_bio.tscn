@@ -158,4 +158,10 @@ animation = &"bio_4"
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CapsuleShape2D_4urbe")
 
+[node name="HealthBar" parent="." index="5"]
+offset_left = -15.0
+offset_top = -24.0
+offset_right = 15.0
+offset_bottom = -22.0
+
 [editable path="HitBox"]

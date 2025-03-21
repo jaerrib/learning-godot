@@ -122,4 +122,10 @@ animation = &"zipper_3"
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_og0ro")
 
+[node name="HealthBar" parent="." index="5"]
+offset_left = -12.0
+offset_top = -16.0
+offset_right = 12.0
+offset_bottom = -14.0
+
 [editable path="HitBox"]

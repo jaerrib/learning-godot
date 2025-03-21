@@ -125,4 +125,10 @@ animation = &"bomber_3"
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CapsuleShape2D_4sxtm")
 
+[node name="HealthBar" parent="." index="5"]
+offset_left = -20.0
+offset_top = -32.0
+offset_right = 20.0
+offset_bottom = -30.0
+
 [editable path="HitBox"]

@@ -16,10 +16,12 @@ class_name EnemeyBase
 @onready var laser_timer: Timer = $LaserTimer
 @onready var sound: AudioStreamPlayer2D = $Sound
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var health_bar: HealthBar = $HealthBar
 
 
 var _speed: float = 50.0
 var _player_ref: Player
+var _dead: bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -78,3 +80,19 @@ func shoot() -> void:
 
 func _on_laser_timer_timeout() -> void:
 	shoot()
+
+
+func die() -> void:
+	if _dead == true:
+		return
+	_dead = true
+	queue_free()	
+
+
+func _on_health_bar_died() -> void:
+	die() 
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	if area is BaseBullet:
+		health_bar.take_damage(area.get_damage())

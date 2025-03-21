@@ -17,6 +17,7 @@ class_name EnemeyBase
 @onready var sound: AudioStreamPlayer2D = $Sound
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: HealthBar = $HealthBar
+@onready var booms: Node2D = $Booms
 
 
 var _speed: float = 50.0
@@ -82,10 +83,19 @@ func _on_laser_timer_timeout() -> void:
 	shoot()
 
 
+func make_booms() -> void:
+	for b in booms.get_children():
+		SignalManager.on_create_explosion.emit(
+			b.global_position, 
+			Explosion.ExplosionType.BOOM
+
+		)
+
 func die() -> void:
 	if _dead == true:
 		return
 	_dead = true
+	make_booms()
 	queue_free()	
 
 

@@ -25,6 +25,8 @@ one_shot = true
 
 [node name="HealthBar" parent="." instance=ExtResource("4_yjm6r")]
 
+[node name="Booms" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
 [connection signal="died" from="HealthBar" to="." method="_on_health_bar_died"]

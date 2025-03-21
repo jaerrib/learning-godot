@@ -131,4 +131,19 @@ offset_top = -32.0
 offset_right = 20.0
 offset_bottom = -30.0
 
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
+position = Vector2(0, -10)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms" index="1"]
+position = Vector2(0, 20)
+
+[node name="Marker2D3" type="Marker2D" parent="Booms" index="2"]
+position = Vector2(-16, 2)
+
+[node name="Marker2D4" type="Marker2D" parent="Booms" index="3"]
+position = Vector2(16, 2)
+
+[node name="Marker2D5" type="Marker2D" parent="Booms" index="4"]
+position = Vector2(0, 4)
+
 [editable path="HitBox"]

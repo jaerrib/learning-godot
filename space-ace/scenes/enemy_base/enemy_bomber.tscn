@@ -123,6 +123,9 @@ power_up_chance = 0.5
 sprite_frames = SubResource("SpriteFrames_pcr3d")
 animation = &"bomber_3"
 
+[node name="HitBox" parent="." index="2"]
+damage = 40
+
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CapsuleShape2D_4sxtm")
 

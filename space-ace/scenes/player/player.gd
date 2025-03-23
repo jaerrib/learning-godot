@@ -70,3 +70,5 @@ func _on_area_entered(area: Area2D) -> void:
 				print("health")
 			PowerUp.PowerUpType.SHIELD:
 				shield.enable_shield()
+	elif area is HitBox:
+		SignalManager.on_player_hit.emit(area.get_damage())

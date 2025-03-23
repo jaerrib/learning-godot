@@ -156,6 +156,9 @@ power_up_chance = 0.2
 sprite_frames = SubResource("SpriteFrames_3n42s")
 animation = &"bio_4"
 
+[node name="HitBox" parent="." index="2"]
+damage = 20
+
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 shape = SubResource("CapsuleShape2D_4urbe")
 

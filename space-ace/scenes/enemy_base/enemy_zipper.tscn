@@ -113,6 +113,7 @@ height = 36.0
 
 [node name="EnemyZipper" instance=ExtResource("1_0k2xt")]
 bullet_type = 1
+power_up_chance = 0.1
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_scphn")

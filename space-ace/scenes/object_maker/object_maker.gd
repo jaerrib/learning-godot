@@ -13,6 +13,7 @@ func _ready() -> void:
 	SignalManager.on_create_bullet.connect(on_create_bullet)
 	SignalManager.on_create_power_up.connect(on_create_power_up)
 	SignalManager.on_create_explosion.connect(on_create_explosion)
+	SignalManager.on_create_power_up_random.connect(on_create_power_up_random)
 
 
 func add_object(obj: Node, global_position: Vector2) -> void:
@@ -30,6 +31,11 @@ func on_create_power_up(start_pos: Vector2, pu_type: PowerUp.PowerUpType) -> voi
 	var pu: PowerUp = POWER_UP.instantiate()
 	pu.set_power_up_type(pu_type)
 	call_deferred(ADD_OBJECT, pu, start_pos)
+
+
+func on_create_power_up_random(start_pos: Vector2) -> void:
+	var rpu: PowerUp.PowerUpType = PowerUp.PowerUpType.values().pick_random()
+	on_create_power_up(start_pos, rpu)
 
 
 func on_create_bullet(start_pos: Vector2, dir: Vector2, speed: float, bu_type: BaseBullet.BulletType ) -> void:

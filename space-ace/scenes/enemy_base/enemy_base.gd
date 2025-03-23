@@ -12,12 +12,16 @@ class_name EnemeyBase
 @export var bullet_direction: Vector2 = Vector2.DOWN
 @export var bullet_wait_time: float = 3.0
 @export var bullet_wait_time_var: float = 0.5
+@export var power_up_chance: float = 0.7
 
 @onready var laser_timer: Timer = $LaserTimer
 @onready var sound: AudioStreamPlayer2D = $Sound
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var health_bar: HealthBar = $HealthBar
 @onready var booms: Node2D = $Booms
+
+
+const SPAWN_CHANCE: float = 0.20
 
 
 var _speed: float = 50.0
@@ -91,10 +95,17 @@ func make_booms() -> void:
 
 		)
 
+
+func create_power_up() -> void:
+	if randf()  < power_up_chance:
+		SignalManager.on_create_power_up_random.emit(global_position)
+
+
 func die() -> void:
 	if _dead == true:
 		return
 	_dead = true
+	create_power_up()
 	make_booms()
 	queue_free()	
 

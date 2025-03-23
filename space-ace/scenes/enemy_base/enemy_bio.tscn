@@ -150,6 +150,7 @@ shoots_at_player = true
 bullet_type = 1
 bullet_wait_time = 2.0
 bullet_wait_time_var = 0.3
+power_up_chance = 0.2
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_3n42s")

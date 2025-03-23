@@ -7,8 +7,9 @@ class_name Player
 @export var speed: float = 200.0
 @export var bullet_speed: float = 280.0
 @export var bullet_direction: Vector2 = Vector2.UP
+@export var health_boost: int = 20
 
-
+ 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shield: Shield = $Shield
@@ -67,7 +68,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is PowerUp:
 		match area.get_Power_up_type():
 			PowerUp.PowerUpType.HEALTH:
-				print("health")
+				SignalManager.on_player_health_bonus.emit(health_boost)
 			PowerUp.PowerUpType.SHIELD:
 				shield.enable_shield()
 	elif area is HitBox:

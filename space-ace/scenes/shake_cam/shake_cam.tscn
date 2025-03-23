@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpsu8svv0lvr1"]
+
+[ext_resource type="Script" path="res://scenes/shake_cam/shake_cam.gd" id="1_bsmxo"]
+
+[node name="ShakeCam" type="Camera2D"]
+anchor_mode = 0
+script = ExtResource("1_bsmxo")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

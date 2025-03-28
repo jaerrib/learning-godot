@@ -17,3 +17,5 @@ signal on_create_explosion(pos: Vector2, et: Explosion.ExplosionType)
 signal on_player_hit(dmg: int)
 signal on_player_health_bonus(dmg: int)
 signal on_player_died
+
+signal on_score_updated(v: int)

@@ -13,6 +13,7 @@ class_name EnemeyBase
 @export var bullet_wait_time: float = 3.0
 @export var bullet_wait_time_var: float = 0.5
 @export var power_up_chance: float = 0.7
+@export var kill_me_score: int = 10
 
 @onready var laser_timer: Timer = $LaserTimer
 @onready var sound: AudioStreamPlayer2D = $Sound
@@ -107,6 +108,7 @@ func die() -> void:
 	_dead = true
 	create_power_up()
 	make_booms()
+	ScoreManager.increment_score(kill_me_score)
 	queue_free()	
 
 

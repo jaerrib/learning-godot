@@ -11,18 +11,18 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_key_pressed(KEY_ESCAPE):
+	if Input.is_key_pressed(KEY_ESCAPE) or Input.is_action_just_pressed("exit"):
 		GameManager.load_main_scene()
-	if Input.is_action_just_pressed("maker"):
+	#if Input.is_action_just_pressed("maker"):
 		#SignalManager.on_create_bullet.emit(
 				#Vector2(339, 100),
 				#Vector2.DOWN,
 				#150,
 				#BaseBullet.BulletType.ENEMY)
 				
-		SignalManager.on_create_power_up.emit(
-				Vector2(339, 100),
-				PowerUp.PowerUpType.HEALTH)
+		#SignalManager.on_create_power_up.emit(
+				#Vector2(339, 100),
+				#PowerUp.PowerUpType.HEALTH)
 
 
 func on_player_died() -> void:

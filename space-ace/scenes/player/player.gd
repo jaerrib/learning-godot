@@ -13,6 +13,7 @@ class_name Player
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shield: Shield = $Shield
+@onready var sound: AudioStreamPlayer2D = $Sound
 
 
 const MARGIN: float = 16.0
@@ -43,6 +44,7 @@ func shoot() -> void:
 		bullet_speed,
 		BaseBullet.BulletType.PLAYER,
 	)
+	SoundManager.play_laser_random(sound)
 
 
 func get_input() -> Vector2:

@@ -9,20 +9,24 @@ class_name Player
 @export var bullet_direction: Vector2 = Vector2.UP
 @export var health_boost: int = 20
 @export var laser_boost: int = 10
+@export var is_boosted: bool = false
 
- 
+
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var shield: Shield = $Shield
 @onready var sound: AudioStreamPlayer2D = $Sound
+@onready var laser_boost_timer: Timer = $LaserBoostTimer
 
 
 const MARGIN: float = 16.0
+const BASE_DAMAGE: int = 10
+const BASE_WAIT: int = 10
 
 
 var _upper_left: Vector2
 var _lower_right: Vector2
-@export var _player_damage: int = 10
+var _player_damage: int = 10
 
 
 # Called when the node enters the scene tree for the first time.
@@ -84,7 +88,25 @@ func _on_area_entered(area: Area2D) -> void:
 
 func on_increase_player_damage(boost: int) -> void:
 	_player_damage += boost
+	is_boosted = true
+	if laser_boost_timer.is_stopped():
+		laser_boost_timer.start()
+	else:
+		extend_timer()
+
+
+func extend_timer() -> void:
+	var new_time = laser_boost_timer.time_left + BASE_WAIT
+	laser_boost_timer.stop()
+	laser_boost_timer.wait_time = new_time
+	laser_boost_timer.start()	
 
 
 func get_player_damage() -> int:
 	return _player_damage
+
+
+func _on_laser_boost_timer_timeout() -> void:
+	_player_damage = BASE_DAMAGE
+	laser_boost_timer.wait_time = BASE_WAIT
+	is_boosted = false

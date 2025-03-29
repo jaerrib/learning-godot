@@ -44,7 +44,10 @@ func on_create_bullet(start_pos: Vector2, dir: Vector2, speed: float, bu_type: B
 		BaseBullet.BulletType.PLAYER:
 			scene = PLAYER_BULLET.instantiate()
 			var player: Player = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
-			scene.damage = player._player_damage
+			if player.is_boosted:
+				var sprite: Sprite2D = scene.get_node("Sprite2D")
+				sprite.modulate = Color(255, 255, 0)
+			scene.damage = player.get_player_damage()
 		BaseBullet.BulletType.ENEMY:
 			scene = ENEMY_BULLET.instantiate()
 		BaseBullet.BulletType.ENEMYBOMB:

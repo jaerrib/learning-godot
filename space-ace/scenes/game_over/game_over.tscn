@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bst53qesbbyqh"]
+[gd_scene load_steps=5 format=3 uid="uid://bst53qesbbyqh"]
 
 [ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_j6p1v"]
 [ext_resource type="LabelSettings" uid="uid://cb2u5o7m8jgyn" path="res://assets/LG_Title.tres" id="1_wpsph"]
 [ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="2_plhn5"]
+[ext_resource type="AudioStream" uid="uid://corf1y7rledbx" path="res://assets/sounds/misc/game-over.mp3" id="4_8y51q"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -54,5 +55,8 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
+
+[node name="GameOverSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_8y51q")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

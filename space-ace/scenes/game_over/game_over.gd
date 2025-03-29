@@ -3,6 +3,7 @@ extends Control
 
 @onready var score_label: Label = $VB/ScoreLabel
 @onready var timer: Timer = $Timer
+@onready var game_over_sound: AudioStreamPlayer = $GameOverSound
 
 
 var can_shoot: bool = false
@@ -26,6 +27,7 @@ func _process(delta: float) -> void:
 func on_player_died() -> void:
 	set_process(true)
 	show()
+	game_over_sound.play()
 	timer.start()
 	score_label.text = "Score:%s (Best: %s)" % [
 		ScoreManager.get_score(),

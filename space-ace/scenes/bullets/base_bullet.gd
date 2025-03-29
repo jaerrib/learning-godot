@@ -4,6 +4,9 @@ extends HitBox
 class_name BaseBullet
 
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
+
 enum BulletType { PLAYER, ENEMY, ENEMYBOMB }
 
 
@@ -14,6 +17,7 @@ var _speed: float = 200.0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position += _direction * _speed * delta
+	SpaceUtils.sprite_flicker(sprite_2d)
 
 
 func setup(dir: Vector2, sp: float) -> void:

@@ -12,6 +12,7 @@ var _wave_count: int = 0
 var _last_path_index: int = -1
 var _wave_gap: float = 4.0
 var _paths_list: Array = []
+var _speed_factor: float = 1.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -26,9 +27,15 @@ func set_random_path_index() -> void:
 	_last_path_index = all_indexes.pick_random()
 
 
+func update_speeds() -> void:
+	if WAVES.wave_is_start(_wave_count):
+		_speed_factor += 1.02
+		_wave_gap *= 0.97
+
+
 func create_enemy(wave: EnemyWave) -> EnemyBase:
 	var new_en: EnemyBase = wave.get_enemy_scene().instantiate()
-	new_en.setup(wave.get_speed())
+	new_en.setup(wave.get_speed() * _speed_factor)
 	return new_en
 
 
@@ -50,6 +57,7 @@ func spawn_wave() -> void:
 	#print("wave() %d spawned, waiting %s" % [_wave_count, wave.get_gap()])
 	_wave_count += 1
 	start_spawn_timer()
+	update_speeds()
 	
 
 func _on_spawn_timer_timeout() -> void:

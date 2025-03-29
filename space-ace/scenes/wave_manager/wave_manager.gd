@@ -47,7 +47,7 @@ func spawn_wave() -> void:
 		path.add_child(create_enemy(wave))
 		await get_tree().create_timer(wave.get_gap()).timeout
 	
-	print("wave() %d spawned, waiting %s" % [_wave_count, wave.get_gap()])
+	#print("wave() %d spawned, waiting %s" % [_wave_count, wave.get_gap()])
 	_wave_count += 1
 	start_spawn_timer()
 	

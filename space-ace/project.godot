@@ -31,6 +31,7 @@ window/stretch/mode="canvas_items"
 [global_group]
 
 Player=""
+Moveables=""
 
 [input]
 

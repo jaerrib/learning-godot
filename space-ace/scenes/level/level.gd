@@ -1,9 +1,13 @@
 extends Node2D
 
 
+@onready var music: AudioStreamPlayer = $Music
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	ScoreManager.reset_score()	
+	ScoreManager.reset_score()
+	SignalManager.on_player_died.connect(on_player_died)
 
 
 func _process(delta: float) -> void:
@@ -19,3 +23,13 @@ func _process(delta: float) -> void:
 		SignalManager.on_create_power_up.emit(
 				Vector2(339, 100),
 				PowerUp.PowerUpType.HEALTH)
+
+
+func on_player_died() -> void:
+	music.stop()
+	for n in get_tree().get_nodes_in_group(GameManager.GROUP_MOVEABLES):
+		if is_instance_valid(n):
+			n.queue_free()
+	var player: Player = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
+	if player:
+		player.queue_free()

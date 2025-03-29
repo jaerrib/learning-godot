@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://woecgufpbe4r" path="res://scenes/hit_box/hit_box.tscn" id="2_p7rcg"]
 [ext_resource type="PackedScene" uid="uid://nq242qivg0is" path="res://scenes/health_bar/health_bar.tscn" id="4_yjm6r"]
 
-[node name="EnemyBase" type="PathFollow2D"]
+[node name="EnemyBase" type="PathFollow2D" groups=["Moveables"]]
 rotates = false
 script = ExtResource("1_hx4ug")
 

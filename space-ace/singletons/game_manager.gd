@@ -1,6 +1,7 @@
 extends Node
 
 const GROUP_PLAYER: String = "Player"
+const GROUP_MOVEABLES: String = "Moveables"
 const LEVEL = preload("res://scenes/level/level.tscn")
 const MAIN = preload("res://scenes/main/main.tscn")
 

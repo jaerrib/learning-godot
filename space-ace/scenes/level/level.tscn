@@ -1,14 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bp6nn3hnriyc"]
+[gd_scene load_steps=11 format=3 uid="uid://bp6nn3hnriyc"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_164x3"]
 [ext_resource type="PackedScene" uid="uid://r80joblmpqcy" path="res://scenes/level_bg/level_bg.tscn" id="2_fo3km"]
 [ext_resource type="PackedScene" uid="uid://dpsu8svv0lvr1" path="res://scenes/shake_cam/shake_cam.tscn" id="2_m7rmf"]
 [ext_resource type="PackedScene" uid="uid://cj44yxcjeprnn" path="res://scenes/player/player.tscn" id="3_c43au"]
 [ext_resource type="PackedScene" uid="uid://d3kf3fiy4ix70" path="res://scenes/object_maker/object_maker.tscn" id="4_ks0u4"]
-[ext_resource type="PackedScene" uid="uid://xd873jxjapti" path="res://scenes/enemy_base/enemy_bomber.tscn" id="5_y85bb"]
-[ext_resource type="PackedScene" uid="uid://y87jxjfktl6a" path="res://scenes/enemy_base/enemy_bio.tscn" id="6_nw2vm"]
-[ext_resource type="PackedScene" uid="uid://bmh5toyayombt" path="res://scenes/enemy_base/enemy_zipper.tscn" id="7_m8erx"]
 [ext_resource type="PackedScene" uid="uid://dm7lhnfru4msq" path="res://scenes/game_ui/game_ui.tscn" id="8_myfm5"]
+[ext_resource type="PackedScene" uid="uid://su7q8b51323o" path="res://scenes/wave_manager/wave_manager.tscn" id="9_cdsh8"]
 [ext_resource type="PackedScene" uid="uid://bst53qesbbyqh" path="res://scenes/game_over/game_over.tscn" id="10_4bmy3"]
 [ext_resource type="AudioStream" uid="uid://b2v6xushoe03d" path="res://assets/sounds/loops/Mercury.wav" id="11_t27ju"]
 
@@ -18,24 +16,6 @@ glow_enabled = true
 glow_intensity = 1.0
 glow_strength = 0.95
 glow_blend_mode = 0
-
-[sub_resource type="Curve2D" id="Curve2D_vhggb"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -56, 68, 0, 0, 0, 0, 695, 64)
-}
-point_count = 2
-
-[sub_resource type="Curve2D" id="Curve2D_uxx48"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -44, 121, 0, 0, 0, 0, 116, 199, 0, 0, 0, 0, 245, 132, 0, 0, 0, 0, 358, 184, 0, 0, 0, 0, 462, 141, 0, 0, 0, 0, 581, 201, 0, 0, 0, 0, 690, 124)
-}
-point_count = 7
-
-[sub_resource type="Curve2D" id="Curve2D_3cuqk"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -36, 192, 0, 0, 0, 0, 92, 42, 0, 0, 0, 0, 102, 147, 0, 0, 0, 0, 464, 163, 0, 0, 0, 0, 541, 42, 0, 0, 0, 0, 709, 168)
-}
-point_count = 6
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_164x3")
@@ -53,24 +33,6 @@ z_index = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_abr1h")
 
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_vhggb")
-
-[node name="EnemyBomber" parent="Path2D" instance=ExtResource("5_y85bb")]
-position = Vector2(-56, 68)
-
-[node name="Path2D2" type="Path2D" parent="."]
-curve = SubResource("Curve2D_uxx48")
-
-[node name="EnemyBio" parent="Path2D2" instance=ExtResource("6_nw2vm")]
-position = Vector2(-44, 121)
-
-[node name="Path2D3" type="Path2D" parent="."]
-curve = SubResource("Curve2D_3cuqk")
-
-[node name="EnemyZipper" parent="Path2D3" instance=ExtResource("7_m8erx")]
-position = Vector2(-36, 192)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="CanvasLayer" instance=ExtResource("8_myfm5")]
@@ -82,3 +44,5 @@ visible = false
 stream = ExtResource("11_t27ju")
 volume_db = -10.0
 autoplay = true
+
+[node name="WaveManager" parent="." instance=ExtResource("9_cdsh8")]

@@ -115,10 +115,10 @@ height = 54.0
 shoots_at_player = true
 aims_at_player = true
 bullet_type = 2
-bullet_speed = 80.0
-bullet_wait_time = 2.0
-power_up_chance = 0.5
-kill_me_score = 40
+bullet_speed = 100.0
+bullet_wait_time = 4.0
+power_up_chance = 0.2
+kill_me_score = 30
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_pcr3d")
@@ -135,6 +135,10 @@ offset_left = -20.0
 offset_top = -32.0
 offset_right = 20.0
 offset_bottom = -30.0
+level_low = 50
+level_med = 120
+start_health = 200
+max_health = 200
 
 [node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
 position = Vector2(0, -10)

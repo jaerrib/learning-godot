@@ -1,7 +1,7 @@
 extends PathFollow2D
 
 
-class_name EnemeyBase
+class_name EnemyBase
 
 
 @export var shoots_at_player: bool = false

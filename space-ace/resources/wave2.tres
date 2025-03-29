@@ -6,6 +6,6 @@
 [resource]
 script = ExtResource("1_x2vjc")
 enemy_scene = ExtResource("1_exc37")
-speed = 90.0
-gap = 2.0
+speed = 110.0
+gap = 1.2
 number = 6

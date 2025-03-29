@@ -112,6 +112,7 @@ radius = 13.0
 height = 36.0
 
 [node name="EnemyZipper" instance=ExtResource("1_0k2xt")]
+shoots_at_player = true
 bullet_type = 1
 power_up_chance = 0.1
 
@@ -128,6 +129,10 @@ offset_left = -12.0
 offset_top = -16.0
 offset_right = 12.0
 offset_bottom = -14.0
+level_low = 15
+level_med = 40
+start_health = 60
+max_health = 60
 
 [node name="Marker2D" type="Marker2D" parent="Booms" index="0"]
 

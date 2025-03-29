@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp6nn3hnriyc"]
+[gd_scene load_steps=16 format=3 uid="uid://bp6nn3hnriyc"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_164x3"]
 [ext_resource type="PackedScene" uid="uid://r80joblmpqcy" path="res://scenes/level_bg/level_bg.tscn" id="2_fo3km"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://y87jxjfktl6a" path="res://scenes/enemy_base/enemy_bio.tscn" id="6_nw2vm"]
 [ext_resource type="PackedScene" uid="uid://bmh5toyayombt" path="res://scenes/enemy_base/enemy_zipper.tscn" id="7_m8erx"]
 [ext_resource type="PackedScene" uid="uid://dm7lhnfru4msq" path="res://scenes/game_ui/game_ui.tscn" id="8_myfm5"]
+[ext_resource type="PackedScene" uid="uid://bst53qesbbyqh" path="res://scenes/game_over/game_over.tscn" id="10_4bmy3"]
+[ext_resource type="AudioStream" uid="uid://b2v6xushoe03d" path="res://assets/sounds/loops/Mercury.wav" id="11_t27ju"]
 
 [sub_resource type="Environment" id="Environment_abr1h"]
 background_mode = 3
@@ -72,3 +74,11 @@ position = Vector2(-36, 192)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameUI" parent="CanvasLayer" instance=ExtResource("8_myfm5")]
+
+[node name="GameOver" parent="CanvasLayer" instance=ExtResource("10_4bmy3")]
+visible = false
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_t27ju")
+volume_db = -10.0
+autoplay = true

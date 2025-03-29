@@ -57,7 +57,7 @@ func spawn_wave() -> void:
 	#print("wave() %d spawned, waiting %s" % [_wave_count, wave.get_gap()])
 	_wave_count += 1
 	start_spawn_timer()
-	update_speeds()
+	#update_speeds()
 	
 
 func _on_spawn_timer_timeout() -> void:

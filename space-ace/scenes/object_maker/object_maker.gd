@@ -43,6 +43,8 @@ func on_create_bullet(start_pos: Vector2, dir: Vector2, speed: float, bu_type: B
 	match bu_type:
 		BaseBullet.BulletType.PLAYER:
 			scene = PLAYER_BULLET.instantiate()
+			var player: Player = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
+			scene.damage = player._player_damage
 		BaseBullet.BulletType.ENEMY:
 			scene = ENEMY_BULLET.instantiate()
 		BaseBullet.BulletType.ENEMYBOMB:
@@ -50,4 +52,3 @@ func on_create_bullet(start_pos: Vector2, dir: Vector2, speed: float, bu_type: B
 	if scene:
 		scene.setup(dir, speed)
 		call_deferred(ADD_OBJECT, scene, start_pos)
-		

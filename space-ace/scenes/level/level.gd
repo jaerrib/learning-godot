@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 				
 		#SignalManager.on_create_power_up.emit(
 				#Vector2(339, 100),
-				#PowerUp.PowerUpType.HEALTH)
+				#PowerUp.PowerUpType.LASER)
 
 
 func on_player_died() -> void:

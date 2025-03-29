@@ -10,7 +10,6 @@ class_name HitBox
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
 
-
 func deactivate () -> void:
 	collision_shape_2d.call_deferred("set_disabled", true)
 

@@ -117,7 +117,7 @@ aims_at_player = true
 bullet_type = 2
 bullet_speed = 100.0
 bullet_wait_time = 4.0
-power_up_chance = 0.2
+power_up_chance = 1.0
 kill_me_score = 30
 
 [node name="AnimatedSprite2D" parent="." index="0"]

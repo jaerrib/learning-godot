@@ -2,7 +2,7 @@ extends Node2D
 
 
 const SAUCER = preload("res://scenes/saucer/saucer.tscn")
-const WAIT_TIME: float = 15.0
+const WAIT_TIME: float = 60.0
 const WAIT_VARIATION: float = 3.0
 
 

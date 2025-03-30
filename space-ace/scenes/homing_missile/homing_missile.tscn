@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://k07yehgijtvr"]
+[gd_scene load_steps=5 format=3 uid="uid://k07yehgijtvr"]
 
 [ext_resource type="PackedScene" uid="uid://woecgufpbe4r" path="res://scenes/hit_box/hit_box.tscn" id="1_fotar"]
 [ext_resource type="Texture2D" uid="uid://c5c7m4j3l6i6w" path="res://assets/lasers/spaceMissiles_040.png" id="2_3kyxj"]
+[ext_resource type="Script" path="res://scenes/homing_missile/homing_missile.gd" id="2_d0gku"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_okh3m"]
 radius = 7.0
@@ -9,7 +10,8 @@ height = 36.0
 
 [node name="HomingMissile" instance=ExtResource("1_fotar")]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 5
+script = ExtResource("2_d0gku")
 
 [node name="CollisionShape2D" parent="." index="0"]
 rotation = 1.5708

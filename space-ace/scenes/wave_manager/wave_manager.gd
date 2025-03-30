@@ -29,7 +29,7 @@ func set_random_path_index() -> void:
 
 func update_speeds() -> void:
 	if WAVES.wave_is_start(_wave_count):
-		_speed_factor += 1.02
+		#_speed_factor += 1
 		_wave_gap *= 0.97
 
 
@@ -57,7 +57,7 @@ func spawn_wave() -> void:
 	#print("wave() %d spawned, waiting %s" % [_wave_count, wave.get_gap()])
 	_wave_count += 1
 	start_spawn_timer()
-	#update_speeds()
+	update_speeds()
 	
 
 func _on_spawn_timer_timeout() -> void:

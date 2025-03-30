@@ -53,6 +53,10 @@ func shoot() -> void:
 	s_mach.travel("shoot")
 
 
+func play_open_sound() -> void:
+	sound.play()
+
+
 func fire_missle() -> void:
 	SignalManager.on_create_homing_missile.emit(global_position)
 

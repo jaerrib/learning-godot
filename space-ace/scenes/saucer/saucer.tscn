@@ -1,0 +1,168 @@
+[gd_scene load_steps=12 format=3 uid="uid://b6c5cc2bq53vy"]
+
+[ext_resource type="PackedScene" uid="uid://woecgufpbe4r" path="res://scenes/hit_box/hit_box.tscn" id="1_cyk1x"]
+[ext_resource type="Texture2D" uid="uid://c6c1baeqatrp0" path="res://assets/ships/saucer_1.png" id="2_hd4c6"]
+[ext_resource type="AudioStream" uid="uid://cm54jq1rwi3hx" path="res://assets/sounds/misc/sci-fi-door.wav" id="3_ntpk4"]
+[ext_resource type="PackedScene" uid="uid://nq242qivg0is" path="res://scenes/health_bar/health_bar.tscn" id="4_34h7h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3b42b"]
+radius = 36.0
+
+[sub_resource type="Animation" id="Animation_1dmp1"]
+resource_name = "spin"
+length = 5.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_xs0or"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBox/Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBox/Sprite2D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1h2b8"]
+resource_name = "shoot"
+length = 3.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 4, 5, 6, 5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_swvog"]
+resource_name = "die"
+length = 1.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r46k4"]
+_data = {
+"RESET": SubResource("Animation_xs0or"),
+"die": SubResource("Animation_swvog"),
+"shoot": SubResource("Animation_1h2b8"),
+"spin": SubResource("Animation_1dmp1")
+}
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ebjyv"]
+
+[node name="Saucer" type="PathFollow2D"]
+rotates = false
+
+[node name="HitBox" parent="." instance=ExtResource("1_cyk1x")]
+collision_layer = 2
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="HitBox"]
+position = Vector2(0, 3)
+texture = ExtResource("2_hd4c6")
+hframes = 7
+frame = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox"]
+visible = false
+shape = SubResource("CircleShape2D_3b42b")
+
+[node name="Booms" type="Node2D" parent="."]
+position = Vector2(0, -3)
+
+[node name="Marker2D" type="Marker2D" parent="Booms"]
+position = Vector2(0, 3)
+
+[node name="Marker2D2" type="Marker2D" parent="Booms"]
+position = Vector2(13, -12)
+
+[node name="Marker2D3" type="Marker2D" parent="Booms"]
+position = Vector2(20, 3)
+
+[node name="Marker2D4" type="Marker2D" parent="Booms"]
+position = Vector2(13, 12)
+
+[node name="Marker2D5" type="Marker2D" parent="Booms"]
+position = Vector2(-13, 12)
+
+[node name="Marker2D6" type="Marker2D" parent="Booms"]
+position = Vector2(-20, 3)
+
+[node name="Marker2D7" type="Marker2D" parent="Booms"]
+position = Vector2(-13, -12)
+
+[node name="Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ntpk4")
+
+[node name="HealthBar" parent="." instance=ExtResource("4_34h7h")]
+offset_left = -32.0
+offset_top = -44.0
+offset_right = 31.0
+offset_bottom = -41.0
+start_health = 20
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_r46k4")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_ebjyv")

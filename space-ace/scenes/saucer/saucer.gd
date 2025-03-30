@@ -42,6 +42,7 @@ func make_booms() -> void:
 		SignalManager.on_create_explosion.emit(b.global_position, Explosion.ExplosionType.BOOM)
 		await get_tree().create_timer(BOOM_DELAY).timeout
 
+
 func stop_shooting() -> void:
 	_shooting = false
 	reset_timer()
@@ -50,7 +51,10 @@ func stop_shooting() -> void:
 func shoot() -> void:
 	_shooting = true
 	s_mach.travel("shoot")
-	sound.play()
+
+
+func fire_missle() -> void:
+	SignalManager.on_create_homing_missile.emit(global_position)
 
 
 func reset_timer() -> void:

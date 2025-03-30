@@ -13,6 +13,7 @@ signal on_create_power_up(pos: Vector2, pu_type: PowerUp.PowerUpType)
 signal on_create_power_up_random(pos: Vector2)
 
 signal on_create_explosion(pos: Vector2, et: Explosion.ExplosionType)
+signal on_create_homing_missile(pos: Vector2)
 
 signal on_player_hit(dmg: int)
 signal on_player_health_bonus(dmg: int)

@@ -168,7 +168,7 @@ states/spin/node = SubResource("AnimationNodeAnimation_580fk")
 states/spin/position = Vector2(386.667, 68.6667)
 transitions = ["Start", "spin", SubResource("AnimationNodeStateMachineTransition_7jhjd"), "shoot", "spin", SubResource("AnimationNodeStateMachineTransition_1myfi")]
 
-[node name="Saucer" type="PathFollow2D"]
+[node name="Saucer" type="PathFollow2D" groups=["Moveables"]]
 rotates = false
 script = ExtResource("1_srij2")
 

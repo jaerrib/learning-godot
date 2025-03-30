@@ -103,6 +103,8 @@ func _on_area_entered(area: Area2D) -> void:
 				SignalManager.on_increase_player_damage.emit(laser_boost)
 			PowerUp.PowerUpType.DOUBLE:
 				add_double_shot()
+			PowerUp.PowerUpType.NUKE:
+				nuke()
 	elif area is HitBox:
 		SignalManager.on_player_hit.emit(area.get_damage())
 
@@ -142,3 +144,7 @@ func _on_laser_boost_timer_timeout() -> void:
 
 func _on_double_shot_timer_timeout() -> void:
 	_has_double_shot = false
+
+
+func nuke() -> void:
+	SignalManager.on_nuke_activated.emit()

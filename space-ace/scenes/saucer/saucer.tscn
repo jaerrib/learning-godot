@@ -9,24 +9,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_3b42b"]
 radius = 36.0
 
-[sub_resource type="Animation" id="Animation_1dmp1"]
-resource_name = "spin"
-length = 5.0
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
 [sub_resource type="Animation" id="Animation_xs0or"]
 length = 0.001
 tracks/0/type = "value"
@@ -66,6 +48,23 @@ tracks/2/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_swvog"]
+resource_name = "die"
+length = 1.6
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitBox/Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_1h2b8"]
 resource_name = "shoot"
 length = 3.2
@@ -82,22 +81,37 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 4, 5, 6, 5, 4, 3, 2, 1, 0]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"stop_shooting"
+}]
+}
 
-[sub_resource type="Animation" id="Animation_swvog"]
-resource_name = "die"
-length = 1.6
-step = 0.2
+[sub_resource type="Animation" id="Animation_1dmp1"]
+resource_name = "spin"
+length = 5.0
+loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HitBox/Sprite2D:modulate")
-tracks/0/interp = 2
+tracks/0/path = NodePath("HitBox:rotation")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+"values": [0.0, 6.28319]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r46k4"]
@@ -197,3 +211,5 @@ anim_player = NodePath("../AnimationPlayer")
 
 [node name="ShootTimer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

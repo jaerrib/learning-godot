@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://b56vuqho3e2d2"]
+
+[ext_resource type="PackedScene" uid="uid://bmh5toyayombt" path="res://scenes/enemy_base/enemy_zipper.tscn" id="1_8pkh7"]
+
+[node name="FastZipper" instance=ExtResource("1_8pkh7")]
+scale = Vector2(0.75, 0.75)
+shoots_at_player = false
+power_up_chance = 0.0
+kill_me_score = 5
+
+[node name="HealthBar" parent="." index="5"]
+level_low = 5
+level_med = 10
+start_health = 15
+max_health = 15
+
+[editable path="HitBox"]

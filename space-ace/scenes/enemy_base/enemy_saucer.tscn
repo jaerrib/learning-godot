@@ -65,12 +65,13 @@ aims_at_player = true
 bullet_type = 2
 bullet_speed = 180.0
 bullet_wait_time = 5.0
+power_up_chance = 0.5
 kill_me_score = 25
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_k3t0b")
-frame_progress = 0.77575
+frame_progress = 0.266701
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox" index="1"]
 shape = SubResource("CircleShape2D_3fjt4")

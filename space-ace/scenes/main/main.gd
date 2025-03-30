@@ -1,9 +1,13 @@
 extends Control
 
 
+@onready var high_score_label: Label = $MarginContainer/HighScoreLabel
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	var high_score: int = ScoreManager.get_high_score()
+	high_score_label.text = "High Score: %06d" % high_score
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

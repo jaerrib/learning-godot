@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://55ncpkx035wk"]
+[gd_scene load_steps=10 format=3 uid="uid://55ncpkx035wk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_hb3qk"]
 [ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_o0uym"]
@@ -7,6 +7,7 @@
 [ext_resource type="LabelSettings" uid="uid://cb2u5o7m8jgyn" path="res://assets/LG_Title.tres" id="4_wyqmh"]
 [ext_resource type="PackedScene" uid="uid://btt8mx0fmlxgi" path="res://scenes/sun/sun.tscn" id="5_w662t"]
 [ext_resource type="PackedScene" uid="uid://cky0pe7eoq2ha" path="res://scenes/ui_button/ui_button.tscn" id="6_6sbm8"]
+[ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="7_s2lh5"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="8_kwvvb"]
 
 [node name="Main" type="Control"]
@@ -53,13 +54,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "SPACE ACE
-(ish)"
+text = "PHOTON
+FRENZY"
 label_settings = ExtResource("4_wyqmh")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -77,6 +80,14 @@ text = "Play"
 [node name="ExitButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("6_6sbm8")]
 layout_mode = 2
 text = "Exit"
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "High Score: 00000"
+label_settings = ExtResource("7_s2lh5")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Sun" parent="." instance=ExtResource("5_w662t")]
 position = Vector2(60, 60)

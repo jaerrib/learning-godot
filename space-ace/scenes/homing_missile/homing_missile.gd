@@ -2,7 +2,7 @@ extends HitBox
 class_name HomingMissle
 
 const ROTATION_SPEED: float = 1.8
-const SPEED: float = 40.0
+const SPEED: float = 60.0
 const SCORE: int = 5
 
 var _player_ref: Player

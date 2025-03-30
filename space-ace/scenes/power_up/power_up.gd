@@ -4,7 +4,7 @@ extends HitBox
 class_name PowerUp
 
 
-enum PowerUpType { HEALTH, SHIELD, LASER }
+enum PowerUpType { HEALTH, SHIELD, LASER, DOUBLE }
 
 
 const SPEED: float = 80.0
@@ -13,6 +13,7 @@ const TEXTURES: Dictionary = {
 	PowerUpType.HEALTH: preload("res://assets/misc/powerupGreen_bolt.png"),
 	PowerUpType.SHIELD: preload("res://assets/misc/shield_gold.png"),
 	PowerUpType.LASER: preload("res://assets/misc/powerupBlue_bolt.png"),
+	PowerUpType.DOUBLE: preload("res://assets/misc/powerupRed_bolt.png"),
 }
 
 

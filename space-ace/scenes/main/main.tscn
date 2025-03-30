@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://55ncpkx035wk"]
+[gd_scene load_steps=12 format=3 uid="uid://55ncpkx035wk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_hb3qk"]
 [ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_o0uym"]
@@ -8,7 +8,14 @@
 [ext_resource type="PackedScene" uid="uid://btt8mx0fmlxgi" path="res://scenes/sun/sun.tscn" id="5_w662t"]
 [ext_resource type="PackedScene" uid="uid://cky0pe7eoq2ha" path="res://scenes/ui_button/ui_button.tscn" id="6_6sbm8"]
 [ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="7_s2lh5"]
+[ext_resource type="FontFile" uid="uid://mrdlwe7bf1tx" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="8_kqgkm"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="8_kwvvb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_83ckl"]
+font = ExtResource("8_kqgkm")
+font_size = 14
+outline_size = 2
+outline_color = Color(0.105882, 0.105882, 0.105882, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -81,13 +88,25 @@ text = "Play"
 layout_mode = 2
 text = "Exit"
 
-[node name="HighScoreLabel" type="Label" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_vertical = 8
+
+[node name="HighScoreLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
 size_flags_vertical = 8
 text = "High Score: 00000"
 label_settings = ExtResource("7_s2lh5")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VersionLabel" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+text = "Version 1.1"
+label_settings = SubResource("LabelSettings_83ckl")
 
 [node name="Sun" parent="." instance=ExtResource("5_w662t")]
 position = Vector2(60, 60)

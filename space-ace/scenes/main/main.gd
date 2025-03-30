@@ -1,7 +1,7 @@
 extends Control
 
 
-@onready var high_score_label: Label = $MarginContainer/HighScoreLabel
+@onready var high_score_label: Label = $MarginContainer/HBoxContainer/HighScoreLabel
 
 
 # Called when the node enters the scene tree for the first time.

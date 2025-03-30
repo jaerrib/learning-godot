@@ -23,6 +23,7 @@ func on_score_updated(v: int) -> void:
 
 func _on_health_bar_died() -> void:
 	SignalManager.on_player_died.emit()
+	ScoreManager.save_high_score_to_file()
 
 
 func on_player_health_bonus(boost: int) -> void:

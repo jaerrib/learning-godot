@@ -70,7 +70,7 @@ kill_me_score = 25
 [node name="AnimatedSprite2D" parent="." index="0"]
 position = Vector2(0, -3)
 sprite_frames = SubResource("SpriteFrames_k3t0b")
-frame_progress = 0.273802
+frame_progress = 0.77575
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox" index="1"]
 shape = SubResource("CircleShape2D_3fjt4")
@@ -80,5 +80,9 @@ offset_left = -32.0
 offset_top = -44.0
 offset_right = 31.0
 offset_bottom = -41.0
+level_low = 50
+level_med = 100
+start_health = 150
+max_health = 150
 
 [node name="Marker2D" type="Marker2D" parent="Booms" index="0"]

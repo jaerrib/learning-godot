@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://b6c5cc2bq53vy"]
+[gd_scene load_steps=18 format=3 uid="uid://b6c5cc2bq53vy"]
 
 [ext_resource type="PackedScene" uid="uid://woecgufpbe4r" path="res://scenes/hit_box/hit_box.tscn" id="1_cyk1x"]
+[ext_resource type="Script" path="res://scenes/saucer/saucer.gd" id="1_srij2"]
 [ext_resource type="Texture2D" uid="uid://c6c1baeqatrp0" path="res://assets/ships/saucer_1.png" id="2_hd4c6"]
 [ext_resource type="AudioStream" uid="uid://cm54jq1rwi3hx" path="res://assets/sounds/misc/sci-fi-door.wav" id="3_ntpk4"]
 [ext_resource type="PackedScene" uid="uid://nq242qivg0is" path="res://scenes/health_bar/health_bar.tscn" id="4_34h7h"]
@@ -11,6 +12,7 @@ radius = 36.0
 [sub_resource type="Animation" id="Animation_1dmp1"]
 resource_name = "spin"
 length = 5.0
+loop_mode = 1
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -106,10 +108,35 @@ _data = {
 "spin": SubResource("Animation_1dmp1")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_52rtc"]
+animation = &"die"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_erc1k"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_580fk"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7jhjd"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1myfi"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ebjyv"]
+states/Start/position = Vector2(216, 83.1111)
+states/die/node = SubResource("AnimationNodeAnimation_52rtc")
+states/die/position = Vector2(756, 84.6667)
+states/shoot/node = SubResource("AnimationNodeAnimation_erc1k")
+states/shoot/position = Vector2(596, 146)
+states/spin/node = SubResource("AnimationNodeAnimation_580fk")
+states/spin/position = Vector2(386.667, 68.6667)
+transitions = ["Start", "spin", SubResource("AnimationNodeStateMachineTransition_7jhjd"), "shoot", "spin", SubResource("AnimationNodeStateMachineTransition_1myfi")]
 
 [node name="Saucer" type="PathFollow2D"]
 rotates = false
+script = ExtResource("1_srij2")
 
 [node name="HitBox" parent="." instance=ExtResource("1_cyk1x")]
 collision_layer = 2
@@ -166,3 +193,7 @@ libraries = {
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_ebjyv")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="ShootTimer" type="Timer" parent="."]
+one_shot = true

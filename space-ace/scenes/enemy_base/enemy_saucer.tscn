@@ -1,0 +1,84 @@
+[gd_scene load_steps=10 format=3 uid="uid://xb8blx3dk5o4"]
+
+[ext_resource type="PackedScene" uid="uid://cuwlj7ow4rh7q" path="res://scenes/enemy_base/enemy_base.tscn" id="1_q2kl0"]
+[ext_resource type="Texture2D" uid="uid://bvx0u3yltulbq" path="res://assets/ships/saucer_2.png" id="2_qq27n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fkh78"]
+atlas = ExtResource("2_qq27n")
+region = Rect2(0, 0, 96, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7g8vc"]
+atlas = ExtResource("2_qq27n")
+region = Rect2(96, 0, 96, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmm75"]
+atlas = ExtResource("2_qq27n")
+region = Rect2(192, 0, 96, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcoug"]
+atlas = ExtResource("2_qq27n")
+region = Rect2(288, 0, 96, 90)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrwe7"]
+atlas = ExtResource("2_qq27n")
+region = Rect2(384, 0, 96, 90)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k3t0b"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_fkh78")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g8vc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmm75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcoug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrwe7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcoug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmm75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7g8vc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3fjt4"]
+radius = 37.3631
+
+[node name="EnemySaucer" instance=ExtResource("1_q2kl0")]
+scale = Vector2(0.5, 0.5)
+shoots_at_player = true
+aims_at_player = true
+bullet_type = 2
+bullet_speed = 180.0
+bullet_wait_time = 5.0
+kill_me_score = 25
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+position = Vector2(0, -3)
+sprite_frames = SubResource("SpriteFrames_k3t0b")
+frame_progress = 0.273802
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HitBox" index="1"]
+shape = SubResource("CircleShape2D_3fjt4")
+
+[node name="HealthBar" parent="." index="5"]
+offset_left = -32.0
+offset_top = -44.0
+offset_right = 31.0
+offset_bottom = -41.0
+
+[node name="Marker2D" type="Marker2D" parent="Booms" index="0"]

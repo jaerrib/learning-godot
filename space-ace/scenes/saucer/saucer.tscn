@@ -215,7 +215,10 @@ offset_left = -32.0
 offset_top = -44.0
 offset_right = 31.0
 offset_bottom = -41.0
-start_health = 70
+level_low = 100
+level_med = 200
+start_health = 300
+max_health = 300
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

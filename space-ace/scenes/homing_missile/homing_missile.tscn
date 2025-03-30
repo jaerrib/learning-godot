@@ -8,7 +8,7 @@
 radius = 7.0
 height = 36.0
 
-[node name="HomingMissile" instance=ExtResource("1_fotar")]
+[node name="HomingMissile" groups=["Moveables"] instance=ExtResource("1_fotar")]
 collision_layer = 16
 collision_mask = 5
 script = ExtResource("2_d0gku")

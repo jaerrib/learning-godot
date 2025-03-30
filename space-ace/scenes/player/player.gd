@@ -102,10 +102,16 @@ func _on_area_entered(area: Area2D) -> void:
 			PowerUp.PowerUpType.LASER:
 				SignalManager.on_increase_player_damage.emit(laser_boost)
 			PowerUp.PowerUpType.DOUBLE:
-				_has_double_shot = true
-				double_shot_timer.start()
+				add_double_shot()
 	elif area is HitBox:
 		SignalManager.on_player_hit.emit(area.get_damage())
+
+
+func add_double_shot() -> void:
+	if _has_double_shot:
+		double_shot_timer.stop()
+	_has_double_shot = true
+	double_shot_timer.start()
 
 
 func on_increase_player_damage(boost: int) -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bp6nn3hnriyc"]
+[gd_scene load_steps=14 format=3 uid="uid://bp6nn3hnriyc"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_164x3"]
 [ext_resource type="PackedScene" uid="uid://r80joblmpqcy" path="res://scenes/level_bg/level_bg.tscn" id="2_fo3km"]
@@ -6,10 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://cj44yxcjeprnn" path="res://scenes/player/player.tscn" id="3_c43au"]
 [ext_resource type="PackedScene" uid="uid://d3kf3fiy4ix70" path="res://scenes/object_maker/object_maker.tscn" id="4_ks0u4"]
 [ext_resource type="PackedScene" uid="uid://dm7lhnfru4msq" path="res://scenes/game_ui/game_ui.tscn" id="8_myfm5"]
+[ext_resource type="PackedScene" uid="uid://c0rptegj0usdk" path="res://scenes/pause_menu/pause_menu.tscn" id="8_qefmv"]
 [ext_resource type="PackedScene" uid="uid://su7q8b51323o" path="res://scenes/wave_manager/wave_manager.tscn" id="9_cdsh8"]
 [ext_resource type="PackedScene" uid="uid://bst53qesbbyqh" path="res://scenes/game_over/game_over.tscn" id="10_4bmy3"]
 [ext_resource type="PackedScene" uid="uid://brqjk5ihphifc" path="res://scenes/saucer_manager/saucer_manager.tscn" id="10_gl5ku"]
 [ext_resource type="AudioStream" uid="uid://b2v6xushoe03d" path="res://assets/sounds/loops/Mercury.wav" id="11_t27ju"]
+[ext_resource type="PackedScene" uid="uid://cl04grbwig8eb" path="res://scenes/game_play_manager/game_play_manager.tscn" id="12_mkt7u"]
 
 [sub_resource type="Environment" id="Environment_abr1h"]
 background_mode = 3
@@ -41,6 +43,9 @@ environment = SubResource("Environment_abr1h")
 [node name="GameOver" parent="CanvasLayer" instance=ExtResource("10_4bmy3")]
 visible = false
 
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_qefmv")]
+visible = false
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_t27ju")
 volume_db = -10.0
@@ -49,3 +54,6 @@ autoplay = true
 [node name="WaveManager" parent="." instance=ExtResource("9_cdsh8")]
 
 [node name="SaucerManager" parent="." instance=ExtResource("10_gl5ku")]
+
+[node name="GamePlayManager" parent="." instance=ExtResource("12_mkt7u")]
+process_mode = 3

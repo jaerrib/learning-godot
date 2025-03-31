@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var music: AudioStreamPlayer = $Music
 @onready var wave_manager: Node2D = $WaveManager
+@onready var pause_menu: Control = $CanvasLayer/PauseMenu
 
 
 # Called when the node enters the scene tree for the first time.

@@ -48,10 +48,7 @@ func _process(delta: float) -> void:
 		shot_timer.start()
 		_is_auto_shooting = true
 	if Input.is_action_just_pressed("shoot"):
-		if _has_double_shot:
-			double_shoot()
-		else:
-			shoot()
+		select_shot_type()
 
 
 func double_shoot() -> void:
@@ -159,9 +156,15 @@ func nuke() -> void:
 
 
 func _on_shot_timer_timeout() -> void:
-	shoot()
+	select_shot_type()
 	_is_auto_shooting = false
 
+
+func select_shot_type() -> void:
+	if _has_double_shot:
+		double_shoot()
+	else:
+		shoot()
 
 func _on_auto_shot_timer_timeout() -> void:
 	_has_auto_shot = false

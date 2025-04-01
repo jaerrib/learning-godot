@@ -111,6 +111,8 @@ func _on_area_entered(area: Area2D) -> void:
 				add_double_shot()
 			PowerUp.PowerUpType.NUKE:
 				nuke()
+			PowerUp.PowerUpType.AUTO:
+				_has_auto_shot = true
 	elif area is HitBox:
 		SignalManager.on_player_hit.emit(area.get_damage())
 

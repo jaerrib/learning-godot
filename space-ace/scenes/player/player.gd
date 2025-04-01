@@ -18,6 +18,7 @@ class_name Player
 @onready var sound: AudioStreamPlayer2D = $Sound
 @onready var laser_boost_timer: Timer = $LaserBoostTimer
 @onready var double_shot_timer: Timer = $DoubleShotTimer
+@onready var shot_timer: Timer = $ShotTimer
 
 
 const MARGIN: float = 16.0
@@ -29,6 +30,8 @@ var _upper_left: Vector2
 var _lower_right: Vector2
 var _player_damage: int = 10
 var _has_double_shot: bool = false
+var _has_auto_shot: bool = false
+var _is_auto_shooting: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,6 +44,9 @@ func _process(delta: float) -> void:
 	var input = get_input()
 	global_position += input * delta * speed
 	global_position = global_position.clamp(_upper_left, _lower_right)
+	if _has_auto_shot and !_is_auto_shooting:
+		shot_timer.start()
+		_is_auto_shooting = true
 	if Input.is_action_just_pressed("shoot"):
 		if _has_double_shot:
 			double_shoot()
@@ -148,3 +154,12 @@ func _on_double_shot_timer_timeout() -> void:
 
 func nuke() -> void:
 	SignalManager.on_nuke_activated.emit()
+
+
+func _on_shot_timer_timeout() -> void:
+	shoot()
+	_is_auto_shooting = false
+
+
+func _on_auto_shot_timer_timeout() -> void:
+	_has_auto_shot = false

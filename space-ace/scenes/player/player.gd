@@ -19,6 +19,7 @@ class_name Player
 @onready var laser_boost_timer: Timer = $LaserBoostTimer
 @onready var double_shot_timer: Timer = $DoubleShotTimer
 @onready var shot_timer: Timer = $ShotTimer
+@onready var auto_shot_timer: Timer = $AutoShotTimer
 @onready var multishot_timer: Timer = $MultishotTimer
 
 
@@ -33,13 +34,12 @@ var _player_damage: int = 10
 var _has_double_shot: bool = false
 var _has_auto_shot: bool = false
 var _is_auto_shooting: bool = false
-var _has_multishot: bool = true
+var _has_multishot: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_limits()
 	SignalManager.on_increase_player_damage.connect(on_increase_player_damage)
-	multishot_timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -125,6 +125,10 @@ func _on_area_entered(area: Area2D) -> void:
 				nuke()
 			PowerUp.PowerUpType.AUTO:
 				_has_auto_shot = true
+				auto_shot_timer.start()
+			PowerUp.PowerUpType.MULTI:
+				_has_multishot = true
+				multishot_timer.start()
 	elif area is HitBox:
 		SignalManager.on_player_hit.emit(area.get_damage())
 

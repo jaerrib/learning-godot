@@ -19,6 +19,7 @@ class_name Player
 @onready var laser_boost_timer: Timer = $LaserBoostTimer
 @onready var double_shot_timer: Timer = $DoubleShotTimer
 @onready var shot_timer: Timer = $ShotTimer
+@onready var multishot_timer: Timer = $MultishotTimer
 
 
 const MARGIN: float = 16.0
@@ -32,11 +33,13 @@ var _player_damage: int = 10
 var _has_double_shot: bool = false
 var _has_auto_shot: bool = false
 var _is_auto_shooting: bool = false
+var _has_multishot: bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_limits()
 	SignalManager.on_increase_player_damage.connect(on_increase_player_damage)
+	multishot_timer.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -65,6 +68,18 @@ func double_shoot() -> void:
 		BaseBullet.BulletType.PLAYER,
 	)
 	SoundManager.play_laser_random(sound)
+
+
+func multishoot() -> void:
+	var directions: Array[Vector2] = [Vector2.UP, Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT]
+	for direction in directions:
+		SignalManager.on_create_bullet.emit(
+			global_position,
+			direction,
+			bullet_speed,
+			BaseBullet.BulletType.PLAYER,
+		)
+
 
 func shoot() -> void:
 	SignalManager.on_create_bullet.emit(
@@ -161,10 +176,17 @@ func _on_shot_timer_timeout() -> void:
 
 
 func select_shot_type() -> void:
-	if _has_double_shot:
+	SoundManager.play_laser_random(sound)
+	if _has_multishot:
+		multishoot()
+	elif _has_double_shot:
 		double_shoot()
 	else:
 		shoot()
 
 func _on_auto_shot_timer_timeout() -> void:
 	_has_auto_shot = false
+
+
+func _on_multishot_timer_timeout() -> void:
+	_has_multishot = false

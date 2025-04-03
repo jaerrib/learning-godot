@@ -22,6 +22,7 @@ class_name Player
 @onready var shot_timer: Timer = $ShotTimer
 @onready var auto_shot_timer: Timer = $AutoShotTimer
 @onready var multishot_timer: Timer = $MultishotTimer
+@onready var booms: Node2D = $Booms
 
 
 const MARGIN: float = 16.0
@@ -195,3 +196,11 @@ func _on_auto_shot_timer_timeout() -> void:
 
 func _on_multishot_timer_timeout() -> void:
 	_has_multishot = false
+
+
+func make_booms() -> void:
+	for b in booms.get_children():
+		SignalManager.on_create_explosion.emit(
+			b.global_position, 
+			Explosion.ExplosionType.BOOM
+		)

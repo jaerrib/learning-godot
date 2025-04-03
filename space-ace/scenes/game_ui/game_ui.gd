@@ -11,14 +11,17 @@ const PLAYER = preload("res://scenes/player/player.tscn")
 @onready var lives_label: Label = $ColorRect/MC/LivesLabel
 
 
+var _player_lives: int = 3
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var player: Player = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
-	lives_label.text = str(player.player_lives)
+	set_life_label()
 	SignalManager.on_player_hit.connect(on_player_hit)
 	SignalManager.on_player_health_bonus.connect(on_player_health_bonus)
 	SignalManager.on_score_updated.connect(on_score_updated)
-	SignalManager.on_player_life_lost.connect(on_player_life_lost)
+	SignalManager.on_player_life_lost.connect(set_life_label)
 
 
 func on_player_hit(dmg: int) -> void:
@@ -29,16 +32,17 @@ func on_score_updated(v: int) -> void:
 	score_label.text = "%06d" % v
 
 
-func on_player_life_lost(v: int) -> void:
-	lives_label.text = str(v)
+func set_life_label() -> void:
+	print(_player_lives)
+	lives_label.text = str(_player_lives)
 
 
 func _on_health_bar_died() -> void:
 	var player: Player = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
-	player.player_lives -= 1
-	SignalManager.on_player_life_lost.emit(player.player_lives)
-	lives_label.text = str(player.player_lives)
-	if player.player_lives <= 0:
+	player.make_booms()
+	_player_lives -=1
+	SignalManager.on_player_life_lost.emit()
+	if _player_lives <= 0:
 		SignalManager.on_player_died.emit()
 		ScoreManager.save_high_score_to_file()
 	else:

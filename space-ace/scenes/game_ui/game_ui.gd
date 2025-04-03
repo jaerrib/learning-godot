@@ -30,6 +30,8 @@ func on_player_hit(dmg: int) -> void:
 
 func on_score_updated(v: int) -> void:
 	score_label.text = "%06d" % v
+	if v % 1000 == 0:
+		_player_lives += 1
 
 
 func set_life_label() -> void:

@@ -10,6 +10,7 @@ class_name Player
 @export var health_boost: int = 20
 @export var laser_boost: int = 10
 @export var is_boosted: bool = false
+@export var player_lives: int = 3
 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D

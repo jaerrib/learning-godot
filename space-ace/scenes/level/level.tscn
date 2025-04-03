@@ -28,7 +28,7 @@ script = ExtResource("1_164x3")
 [node name="LevelBG" parent="." instance=ExtResource("2_fo3km")]
 
 [node name="Player" parent="." instance=ExtResource("3_c43au")]
-position = Vector2(339, 429)
+position = Vector2(320, 420)
 
 [node name="ObjectMaker" parent="." instance=ExtResource("4_ks0u4")]
 z_index = 1

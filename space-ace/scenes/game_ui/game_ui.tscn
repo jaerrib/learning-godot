@@ -39,12 +39,23 @@ size_flags_vertical = 4
 
 [node name="ScoreLabel" type="Label" parent="ColorRect/MC"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 4
 text = "00000"
 label_settings = ExtResource("2_3r6ah")
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="LivesLabel" type="Label" parent="ColorRect/MC"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "2"
+label_settings = ExtResource("2_3r6ah")
+
 [node name="Sound" type="AudioStreamPlayer2D" parent="."]
 
+[node name="RestartTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="died" from="ColorRect/MC/HealthBar" to="." method="_on_health_bar_died"]
+[connection signal="timeout" from="RestartTimer" to="." method="_on_restart_timer_timeout"]

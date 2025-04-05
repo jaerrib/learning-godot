@@ -96,11 +96,11 @@ wait_time = 20.0
 one_shot = true
 
 [node name="MultishotTimer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 15.0
 one_shot = true
 
-[node name="AutoShotTimer" type="Timer" parent="."]
-wait_time = 20.0
+[node name="SpreadTimer" type="Timer" parent="."]
+wait_time = 10.0
 one_shot = true
 
 [node name="ShotTimer" type="Timer" parent="."]
@@ -115,5 +115,5 @@ one_shot = true
 [connection signal="timeout" from="LaserBoostTimer" to="." method="_on_laser_boost_timer_timeout"]
 [connection signal="timeout" from="DoubleShotTimer" to="." method="_on_double_shot_timer_timeout"]
 [connection signal="timeout" from="MultishotTimer" to="." method="_on_multishot_timer_timeout"]
-[connection signal="timeout" from="AutoShotTimer" to="." method="_on_auto_shot_timer_timeout"]
+[connection signal="timeout" from="SpreadTimer" to="." method="_on_spread_timer_timeout"]
 [connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

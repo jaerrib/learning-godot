@@ -106,7 +106,7 @@ theme_override_constants/separation = 24
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/Powerup2"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("3_rjql2")
+texture = ExtResource("7_kln4s")
 
 [node name="Detail" type="Label" parent="MarginContainer/VBoxContainer/Powerup2"]
 layout_mode = 2
@@ -123,7 +123,7 @@ theme_override_constants/separation = 24
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/Powerup3"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("4_uern5")
+texture = ExtResource("3_rjql2")
 
 [node name="Detail" type="Label" parent="MarginContainer/VBoxContainer/Powerup3"]
 layout_mode = 2
@@ -145,7 +145,7 @@ texture = ExtResource("5_yo76s")
 [node name="Detail" type="Label" parent="MarginContainer/VBoxContainer/Powerup4"]
 layout_mode = 2
 size_flags_horizontal = 8
-text = "Auto Shot"
+text = "Spread Shot"
 label_settings = ExtResource("2_7fgap")
 horizontal_alignment = 1
 
@@ -174,7 +174,7 @@ theme_override_constants/separation = 24
 [node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer/Powerup6"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("7_kln4s")
+texture = ExtResource("4_uern5")
 
 [node name="Detail" type="Label" parent="MarginContainer/VBoxContainer/Powerup6"]
 layout_mode = 2

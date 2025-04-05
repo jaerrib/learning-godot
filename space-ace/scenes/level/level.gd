@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	#if Input.is_action_just_pressed("maker"):	
 		#SignalManager.on_create_power_up.emit(
 				#Vector2(339, 100),
-				#PowerUp.PowerUpType.NUKE)
+				#PowerUp.PowerUpType.SPREAD)
 
 
 func on_player_died() -> void:

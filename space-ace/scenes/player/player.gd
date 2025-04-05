@@ -20,7 +20,7 @@ class_name Player
 @onready var laser_boost_timer: Timer = $LaserBoostTimer
 @onready var double_shot_timer: Timer = $DoubleShotTimer
 @onready var shot_timer: Timer = $ShotTimer
-@onready var auto_shot_timer: Timer = $AutoShotTimer
+@onready var spread_timer: Timer = $SpreadTimer
 @onready var multishot_timer: Timer = $MultishotTimer
 @onready var booms: Node2D = $Booms
 
@@ -34,8 +34,8 @@ var _upper_left: Vector2
 var _lower_right: Vector2
 var _player_damage: int = 10
 var _has_double_shot: bool = false
-var _has_auto_shot: bool = false
-var _is_auto_shooting: bool = false
+var _has_spread: bool = false
+var _is_shooting: bool = false
 var _has_multishot: bool = false
 
 # Called when the node enters the scene tree for the first time.
@@ -49,11 +49,10 @@ func _process(delta: float) -> void:
 	var input = get_input()
 	global_position += input * delta * speed
 	global_position = global_position.clamp(_upper_left, _lower_right)
-	if _has_auto_shot and !_is_auto_shooting:
-		shot_timer.start()
-		_is_auto_shooting = true
-	if Input.is_action_just_pressed("shoot"):
-		select_shot_type()
+	if Input.is_action_pressed("shoot"):
+		if !_is_shooting:
+			shot_timer.start()
+			_is_shooting = true
 
 
 func double_shoot() -> void:
@@ -74,6 +73,23 @@ func double_shoot() -> void:
 
 func multishoot() -> void:
 	var directions: Array[Vector2] = [Vector2.UP, Vector2.RIGHT, Vector2.DOWN, Vector2.LEFT]
+	for direction in directions:
+		SignalManager.on_create_bullet.emit(
+			global_position,
+			direction,
+			bullet_speed,
+			BaseBullet.BulletType.PLAYER,
+		)
+
+func spread_shot() -> void:
+	var directions: Array[Vector2] = [
+		Vector2(-1, -6).normalized(),
+		Vector2(-1, -3).normalized(),
+		Vector2.UP,
+		Vector2(1, -3) 
+		.normalized(),
+		Vector2(1, -6).normalized(),
+		]
 	for direction in directions:
 		SignalManager.on_create_bullet.emit(
 			global_position,
@@ -125,9 +141,9 @@ func _on_area_entered(area: Area2D) -> void:
 				add_double_shot()
 			PowerUp.PowerUpType.NUKE:
 				nuke()
-			PowerUp.PowerUpType.AUTO:
-				_has_auto_shot = true
-				auto_shot_timer.start()
+			PowerUp.PowerUpType.SPREAD:
+				_has_spread = true
+				spread_timer.start()
 			PowerUp.PowerUpType.MULTI:
 				_has_multishot = true
 				multishot_timer.start()
@@ -178,20 +194,19 @@ func nuke() -> void:
 
 func _on_shot_timer_timeout() -> void:
 	select_shot_type()
-	_is_auto_shooting = false
+	_is_shooting = false
 
 
 func select_shot_type() -> void:
 	SoundManager.play_laser_random(sound)
-	if _has_multishot:
+	if _has_spread:
+		spread_shot()
+	elif _has_multishot:
 		multishoot()
 	elif _has_double_shot:
 		double_shoot()
 	else:
 		shoot()
-
-func _on_auto_shot_timer_timeout() -> void:
-	_has_auto_shot = false
 
 
 func _on_multishot_timer_timeout() -> void:
@@ -204,3 +219,7 @@ func make_booms() -> void:
 			b.global_position, 
 			Explosion.ExplosionType.BOOM
 		)
+
+
+func _on_spread_timer_timeout() -> void:
+	_has_spread = false

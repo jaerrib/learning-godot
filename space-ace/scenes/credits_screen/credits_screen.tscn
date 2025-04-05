@@ -1,0 +1,89 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8frco561scw2"]
+
+[ext_resource type="Script" path="res://scenes/credits_screen/credits_screen.gd" id="1_4gmrt"]
+[ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_xj3u7"]
+[ext_resource type="Texture2D" uid="uid://ba3qcc1n456px" path="res://assets/backgrounds/spr_stars01.png" id="2_7oaav"]
+[ext_resource type="Texture2D" uid="uid://cxrhxraxtvhmf" path="res://assets/backgrounds/spr_stars02.png" id="3_bjhi7"]
+[ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="4_itfx2"]
+[ext_resource type="Script" path="res://scenes/main/menu_button.gd" id="5_hpui7"]
+[ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="7_rjgpn"]
+
+[node name="CreditsScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gmrt")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -560.0
+offset_bottom = 560.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xj3u7")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1040.0
+offset_right = 960.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7oaav")
+
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1040.0
+offset_right = 960.0
+offset_bottom = 1040.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_bjhi7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="CreditsText" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 400)
+layout_mode = 2
+text = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+label_settings = ExtResource("4_itfx2")
+autowrap_mode = 3
+
+[node name="ReturnToMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Return to Menu"
+script = ExtResource("5_hpui7")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_rjgpn")
+volume_db = -8.0
+autoplay = true
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ReturnToMenu" to="." method="_on_return_to_menu_pressed"]

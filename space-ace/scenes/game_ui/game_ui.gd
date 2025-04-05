@@ -12,7 +12,7 @@ const PLAYER = preload("res://scenes/player/player.tscn")
 
 
 var _player_lives: int = 3
-var _extra_life_threshold: int = 1000
+var _extra_life_threshold: int = 3000
 
 
 # Called when the node enters the scene tree for the first time.
@@ -37,7 +37,7 @@ func on_score_updated(v: int) -> void:
 func check_for_extra_life()	-> void:
 	if ScoreManager.get_score() > _extra_life_threshold:
 		_player_lives += 1
-		_extra_life_threshold += 1000
+		_extra_life_threshold += 3000
 		set_life_label()
 	
 

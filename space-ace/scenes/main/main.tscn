@@ -139,7 +139,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-text = "Version 1.1"
+text = "Version 1.2"
 label_settings = SubResource("LabelSettings_83ckl")
 
 [node name="Sun" parent="." instance=ExtResource("5_w662t")]

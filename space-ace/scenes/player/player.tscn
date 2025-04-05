@@ -95,6 +95,25 @@ one_shot = true
 wait_time = 20.0
 one_shot = true
 
+[node name="MultishotTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="AutoShotTimer" type="Timer" parent="."]
+wait_time = 20.0
+one_shot = true
+
+[node name="ShotTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="Booms" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Booms"]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="LaserBoostTimer" to="." method="_on_laser_boost_timer_timeout"]
 [connection signal="timeout" from="DoubleShotTimer" to="." method="_on_double_shot_timer_timeout"]
+[connection signal="timeout" from="MultishotTimer" to="." method="_on_multishot_timer_timeout"]
+[connection signal="timeout" from="AutoShotTimer" to="." method="_on_auto_shot_timer_timeout"]
+[connection signal="timeout" from="ShotTimer" to="." method="_on_shot_timer_timeout"]

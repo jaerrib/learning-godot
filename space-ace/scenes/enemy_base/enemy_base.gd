@@ -93,7 +93,6 @@ func make_booms() -> void:
 		SignalManager.on_create_explosion.emit(
 			b.global_position, 
 			Explosion.ExplosionType.BOOM
-
 		)
 
 

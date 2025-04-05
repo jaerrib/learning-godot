@@ -46,5 +46,11 @@ func incr_value(v: int) -> void:
 	set_color()
 	
 	
+func reset_health() -> void:
+	_dead = false
+	value = max_health
+	set_color()
+	
+	
 func take_damage(v: int) -> void:
 	incr_value(-v)

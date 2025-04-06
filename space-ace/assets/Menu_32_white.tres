@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bi8fomcaumoyh"]
+
+[ext_resource type="FontFile" uid="uid://c5sey0pvhl2vi" path="res://assets/fonts/Excluded-z8XrX.ttf" id="1_s0ylf"]
+
+[resource]
+default_font = ExtResource("1_s0ylf")
+default_font_size = 32

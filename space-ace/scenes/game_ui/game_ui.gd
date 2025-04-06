@@ -43,7 +43,7 @@ func check_for_extra_life()	-> void:
 
 
 func set_life_label() -> void:
-	lives_label.text = str(_player_lives)
+	lives_label.text = str(_player_lives - 1)
 
 
 func _on_health_bar_died() -> void:

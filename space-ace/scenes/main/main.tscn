@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://55ncpkx035wk"]
+[gd_scene load_steps=13 format=3 uid="uid://55ncpkx035wk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_hb3qk"]
 [ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_o0uym"]
@@ -6,23 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://cxrhxraxtvhmf" path="res://assets/backgrounds/spr_stars02.png" id="3_we5qh"]
 [ext_resource type="LabelSettings" uid="uid://cb2u5o7m8jgyn" path="res://assets/LG_Title.tres" id="4_wyqmh"]
 [ext_resource type="PackedScene" uid="uid://btt8mx0fmlxgi" path="res://scenes/sun/sun.tscn" id="5_w662t"]
+[ext_resource type="Theme" uid="uid://bi8fomcaumoyh" path="res://assets/Menu_32_white.tres" id="6_d7iv2"]
 [ext_resource type="FontFile" uid="uid://c5sey0pvhl2vi" path="res://assets/fonts/Excluded-z8XrX.ttf" id="7_flmfj"]
 [ext_resource type="Script" path="res://scenes/main/menu_button.gd" id="7_k8pmx"]
-[ext_resource type="FontFile" uid="uid://mrdlwe7bf1tx" path="res://assets/fonts/gemunu-libre-v8-latin-700.ttf" id="8_kqgkm"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="8_kwvvb"]
 [ext_resource type="LabelSettings" uid="uid://df73apuuwlboa" path="res://assets/GN_24_white.tres" id="9_04q43"]
-
-[sub_resource type="Theme" id="Theme_bpiti"]
-default_font = ExtResource("8_kqgkm")
-default_font_size = 32
-
-[sub_resource type="Theme" id="Theme_1rjcv"]
-default_font = ExtResource("8_kqgkm")
-default_font_size = 32
-
-[sub_resource type="Theme" id="Theme_67lnj"]
-default_font = ExtResource("8_kqgkm")
-default_font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_83ckl"]
 font = ExtResource("7_flmfj")
@@ -82,7 +70,7 @@ theme_override_constants/margin_bottom = 24
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-theme_override_constants/separation = 12
+theme_override_constants/separation = 24
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -94,36 +82,35 @@ vertical_alignment = 1
 [node name="MenuContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/separation = 4
+theme_override_constants/separation = 0
 
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_bpiti")
+theme = ExtResource("6_d7iv2")
 theme_type_variation = &"FlatButton"
-theme_override_fonts/font = ExtResource("7_flmfj")
 text = "PLAY"
 script = ExtResource("7_k8pmx")
 
 [node name="Help" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_1rjcv")
-theme_override_fonts/font = ExtResource("7_flmfj")
+theme = ExtResource("6_d7iv2")
+theme_type_variation = &"FlatButton"
 text = "HELP"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_67lnj")
-theme_override_fonts/font = ExtResource("7_flmfj")
+theme = ExtResource("6_d7iv2")
+theme_type_variation = &"FlatButton"
 text = "QUIT"
 
 [node name="Credits" type="Button" parent="MarginContainer/VBoxContainer/MenuContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = SubResource("Theme_67lnj")
-theme_override_fonts/font = ExtResource("7_flmfj")
+theme = ExtResource("6_d7iv2")
+theme_type_variation = &"FlatButton"
 text = "CREDITS"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -143,7 +130,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-text = "Version 1.3.1"
+text = "Version 1.3.3"
 label_settings = SubResource("LabelSettings_83ckl")
 
 [node name="Sun" parent="." instance=ExtResource("5_w662t")]

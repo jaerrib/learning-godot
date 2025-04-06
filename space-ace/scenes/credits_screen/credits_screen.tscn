@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b8frco561scw2"]
+[gd_scene load_steps=9 format=3 uid="uid://b8frco561scw2"]
 
 [ext_resource type="Script" path="res://scenes/credits_screen/credits_screen.gd" id="1_4gmrt"]
 [ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_xj3u7"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxrhxraxtvhmf" path="res://assets/backgrounds/spr_stars02.png" id="3_bjhi7"]
 [ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="4_itfx2"]
 [ext_resource type="Script" path="res://scenes/main/menu_button.gd" id="5_hpui7"]
+[ext_resource type="FontFile" uid="uid://c5sey0pvhl2vi" path="res://assets/fonts/Excluded-z8XrX.ttf" id="6_vgbhj"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="7_rjgpn"]
 
 [node name="CreditsScreen" type="Control"]
@@ -78,6 +79,7 @@ autowrap_mode = 3
 
 [node name="ReturnToMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("6_vgbhj")
 text = "Return to Menu"
 script = ExtResource("5_hpui7")
 

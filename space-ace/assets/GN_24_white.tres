@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://df73apuuwlboa"]
+
+[ext_resource type="FontFile" uid="uid://c5sey0pvhl2vi" path="res://assets/fonts/Excluded-z8XrX.ttf" id="1_68del"]
+
+[resource]
+font = ExtResource("1_68del")
+font_size = 32
+outline_size = 2
+outline_color = Color(0.105882, 0.105882, 0.105882, 1)

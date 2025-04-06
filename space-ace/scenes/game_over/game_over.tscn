@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/game_over/game_over.gd" id="1_j6p1v"]
 [ext_resource type="LabelSettings" uid="uid://cb2u5o7m8jgyn" path="res://assets/LG_Title.tres" id="1_wpsph"]
-[ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="2_plhn5"]
+[ext_resource type="LabelSettings" uid="uid://df73apuuwlboa" path="res://assets/GN_24_white.tres" id="3_ay4w3"]
 [ext_resource type="AudioStream" uid="uid://corf1y7rledbx" path="res://assets/sounds/misc/game-over.mp3" id="4_8y51q"]
 
 [node name="GameOver" type="Control"]
@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.251, 0, 0.251, 0.9)
+color = Color(0, 0, 0, 0.901961)
 
 [node name="VB" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -48,7 +48,7 @@ vertical_alignment = 1
 [node name="ScoreLabel" type="Label" parent="VB"]
 layout_mode = 2
 text = "Placeholder Text"
-label_settings = ExtResource("2_plhn5")
+label_settings = ExtResource("3_ay4w3")
 horizontal_alignment = 1
 vertical_alignment = 1
 

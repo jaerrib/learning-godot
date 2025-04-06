@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0rptegj0usdk"]
 
-[ext_resource type="LabelSettings" uid="uid://bslymv1e3rjua" path="res://assets/GN_32_white.tres" id="1_000ky"]
 [ext_resource type="Script" path="res://scenes/pause_menu/pause_menu.gd" id="1_8pxvq"]
+[ext_resource type="LabelSettings" uid="uid://df73apuuwlboa" path="res://assets/GN_24_white.tres" id="2_g1vyg"]
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -36,6 +36,6 @@ offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "PAUSED"
-label_settings = ExtResource("1_000ky")
+label_settings = ExtResource("2_g1vyg")
 horizontal_alignment = 1
 vertical_alignment = 1

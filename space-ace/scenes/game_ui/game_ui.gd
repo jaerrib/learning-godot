@@ -18,11 +18,11 @@ var _extra_life_threshold: int = 5000
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var player: Player = get_tree().get_first_node_in_group(GameManager.GROUP_PLAYER)
-	set_life_label()
 	SignalManager.on_player_hit.connect(on_player_hit)
 	SignalManager.on_player_health_bonus.connect(on_player_health_bonus)
 	SignalManager.on_score_updated.connect(on_score_updated)
 	SignalManager.on_player_life_lost.connect(set_life_label)
+	set_life_label()
 
 
 func on_player_hit(dmg: int) -> void:

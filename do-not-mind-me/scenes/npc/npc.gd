@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-const SPEED: float = 30.0
+const SPEED: float = 60.0
 
 
 @onready var sprite_2d: Sprite2D = $Sprite2D

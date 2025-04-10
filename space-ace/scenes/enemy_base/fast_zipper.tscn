@@ -1,12 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://b56vuqho3e2d2"]
+[gd_scene load_steps=8 format=3 uid="uid://b56vuqho3e2d2"]
 
 [ext_resource type="PackedScene" uid="uid://bmh5toyayombt" path="res://scenes/enemy_base/enemy_zipper.tscn" id="1_8pkh7"]
+[ext_resource type="Texture2D" uid="uid://cclntml86iljm" path="res://assets/ships/enemy-03.png" id="2_echom"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h78ta"]
+atlas = ExtResource("2_echom")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjeb8"]
+atlas = ExtResource("2_echom")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0af8d"]
+atlas = ExtResource("2_echom")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7rful"]
+atlas = ExtResource("2_echom")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddlsf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h78ta")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjeb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0af8d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7rful")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="FastZipper" instance=ExtResource("1_8pkh7")]
 scale = Vector2(0.75, 0.75)
 shoots_at_player = false
 power_up_chance = 0.0
 kill_me_score = 5
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+rotation = 3.14159
+sprite_frames = SubResource("SpriteFrames_ddlsf")
+animation = &"default"
+
+[node name="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 3)
 
 [node name="HealthBar" parent="." index="5"]
 level_low = 5

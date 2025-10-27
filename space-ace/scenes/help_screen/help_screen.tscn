@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cc5jlyxuj5qqj"]
+[gd_scene load_steps=17 format=3 uid="uid://cc5jlyxuj5qqj"]
 
 [ext_resource type="Texture2D" uid="uid://b6gf5rwll2bab" path="res://assets/misc/shield_gold.png" id="1_8ufqt"]
 [ext_resource type="Script" path="res://scenes/help_screen/help_screen.gd" id="1_osxsu"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/main/menu_button.gd" id="9_smcgw"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="11_geyjq"]
 [ext_resource type="FontFile" uid="uid://c5sey0pvhl2vi" path="res://assets/fonts/Excluded-z8XrX.ttf" id="13_tdt04"]
+[ext_resource type="PackedScene" uid="uid://dxohwftwab48g" path="res://scenes/scan_lines/scan_lines.tscn" id="15_5c85g"]
 
 [node name="HelpScreen" type="Control"]
 layout_mode = 3
@@ -207,6 +208,9 @@ theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("13_tdt04")
 text = "Return to Menu"
 script = ExtResource("9_smcgw")
+
+[node name="ScanLines" parent="." instance=ExtResource("15_5c85g")]
+layout_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_geyjq")

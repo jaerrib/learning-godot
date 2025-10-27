@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8frco561scw2"]
+[gd_scene load_steps=10 format=3 uid="uid://b8frco561scw2"]
 
 [ext_resource type="Script" path="res://scenes/credits_screen/credits_screen.gd" id="1_4gmrt"]
 [ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_xj3u7"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/main/menu_button.gd" id="5_hpui7"]
 [ext_resource type="FontFile" uid="uid://c5sey0pvhl2vi" path="res://assets/fonts/Excluded-z8XrX.ttf" id="6_vgbhj"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="7_rjgpn"]
+[ext_resource type="PackedScene" uid="uid://dxohwftwab48g" path="res://scenes/scan_lines/scan_lines.tscn" id="8_6smty"]
 
 [node name="CreditsScreen" type="Control"]
 layout_mode = 3
@@ -83,6 +84,9 @@ theme_type_variation = &"FlatButton"
 theme_override_fonts/font = ExtResource("6_vgbhj")
 text = "Return to Menu"
 script = ExtResource("5_hpui7")
+
+[node name="ScanLines" parent="." instance=ExtResource("8_6smty")]
+layout_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_rjgpn")

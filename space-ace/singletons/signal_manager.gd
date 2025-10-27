@@ -23,3 +23,5 @@ signal on_increase_player_damage(incr: int)
 signal on_nuke_activated
 
 signal on_score_updated(v: int)
+
+signal on_toggle_scanlines

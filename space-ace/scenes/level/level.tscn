@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bp6nn3hnriyc"]
+[gd_scene load_steps=15 format=3 uid="uid://bp6nn3hnriyc"]
 
 [ext_resource type="Script" path="res://scenes/level/level.gd" id="1_164x3"]
 [ext_resource type="PackedScene" uid="uid://r80joblmpqcy" path="res://scenes/level_bg/level_bg.tscn" id="2_fo3km"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dm7lhnfru4msq" path="res://scenes/game_ui/game_ui.tscn" id="8_myfm5"]
 [ext_resource type="PackedScene" uid="uid://c0rptegj0usdk" path="res://scenes/pause_menu/pause_menu.tscn" id="8_qefmv"]
 [ext_resource type="PackedScene" uid="uid://su7q8b51323o" path="res://scenes/wave_manager/wave_manager.tscn" id="9_cdsh8"]
+[ext_resource type="PackedScene" uid="uid://dxohwftwab48g" path="res://scenes/scan_lines/scan_lines.tscn" id="9_xcg2r"]
 [ext_resource type="PackedScene" uid="uid://bst53qesbbyqh" path="res://scenes/game_over/game_over.tscn" id="10_4bmy3"]
 [ext_resource type="PackedScene" uid="uid://brqjk5ihphifc" path="res://scenes/saucer_manager/saucer_manager.tscn" id="10_gl5ku"]
 [ext_resource type="AudioStream" uid="uid://b2v6xushoe03d" path="res://assets/sounds/loops/Mercury.wav" id="11_t27ju"]
@@ -45,6 +46,8 @@ visible = false
 
 [node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("8_qefmv")]
 visible = false
+
+[node name="ScanLines" parent="CanvasLayer" instance=ExtResource("9_xcg2r")]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_t27ju")

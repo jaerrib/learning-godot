@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://55ncpkx035wk"]
+[gd_scene load_steps=14 format=3 uid="uid://55ncpkx035wk"]
 
 [ext_resource type="Script" path="res://scenes/main/main.gd" id="1_hb3qk"]
 [ext_resource type="Texture2D" uid="uid://cfm1xevyj1bk2" path="res://assets/backgrounds/GalaxyUno.png" id="1_o0uym"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/main/menu_button.gd" id="7_k8pmx"]
 [ext_resource type="AudioStream" uid="uid://bd4y72gkgty8s" path="res://assets/sounds/loops/TitleScreen.mp3" id="8_kwvvb"]
 [ext_resource type="LabelSettings" uid="uid://df73apuuwlboa" path="res://assets/GN_24_white.tres" id="9_04q43"]
+[ext_resource type="PackedScene" uid="uid://dxohwftwab48g" path="res://scenes/scan_lines/scan_lines.tscn" id="11_6np4o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_83ckl"]
 font = ExtResource("7_flmfj")
@@ -130,12 +131,15 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 8
-text = "Version 1.3.3"
+text = "Version 1.4"
 label_settings = SubResource("LabelSettings_83ckl")
 
-[node name="Sun" parent="." instance=ExtResource("5_w662t")]
+[node name="Sun" parent="MarginContainer" instance=ExtResource("5_w662t")]
 position = Vector2(60, 60)
 scale = Vector2(0.35, 0.35)
+
+[node name="ScanLines" parent="." instance=ExtResource("11_6np4o")]
+layout_mode = 1
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_kwvvb")

@@ -8,6 +8,8 @@ const MAIN = preload("res://scenes/main/main.tscn")
 const HELP = preload("res://scenes/help_screen/help_screen.tscn")
 const CREDITS =preload("res://scenes/credits_screen/credits_screen.tscn")
 
+var scanlines: bool = true
+
 
 func load_main_scene() -> void:
 	get_tree().change_scene_to_packed(MAIN)
